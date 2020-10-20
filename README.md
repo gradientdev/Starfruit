@@ -1,4 +1,7 @@
 # Starfruit
+
+![App Icon](starfruiticon.png)
+
 An app that texts the user motivational quotes every morning. (10/18/2020, Project #3)
 
 ***[This app is currently in development]***
