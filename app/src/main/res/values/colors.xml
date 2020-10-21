@@ -9,4 +9,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="midnight">#16151a</color>
     <color name="staryellow">#f4d700</color>
+    <color name="coal">#2b2b2b</color>
+
 </resources>

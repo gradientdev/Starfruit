@@ -12,7 +12,12 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Home" />
+            android:text="Home"
+            android:textSize="30sp"
+            android:textAlignment="center"
+            android:textColor="@color/coal"
+            android:textStyle="bold"/>
+
     </RelativeLayout>
 
 </FrameLayout>

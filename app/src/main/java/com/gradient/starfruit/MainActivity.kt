@@ -1,8 +1,6 @@
 package com.gradient.starfruit
 
 import android.os.Bundle
-import android.widget.Button
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -29,10 +27,10 @@ class MainActivity : AppCompatActivity() {
             true
         }
 
-        findViewById<Button>(R.id.testbutton).setOnClickListener {
-            val toast = Toast.makeText(this, "Text Sent!", Toast.LENGTH_SHORT)
-            toast.show()
-        }
+//        findViewById<Button>(R.id.testbutton).setOnClickListener {
+//            val toast = Toast.makeText(this, "Text Sent!", Toast.LENGTH_SHORT)
+//            toast.show()
+//        }
 
 //        Twilio.init("sid", "auth"
 //        )
