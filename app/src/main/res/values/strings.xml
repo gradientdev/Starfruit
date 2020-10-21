@@ -2,4 +2,8 @@
     <string name="app_name">Starfruit</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hometext">This is the main page, where important info will be displayed. </string>
+    <string name="settingstext">This is the settings page, where users will be able to adjust what time they want to receive their message.</string>
+    <string name="abouttext">This app texts you an inspirational message every morning, or whenever you want to receive one everyday.
+    it is still in progress, but will be public soon!</string>
 </resources>

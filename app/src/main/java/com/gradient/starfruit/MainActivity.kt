@@ -27,11 +27,6 @@ class MainActivity : AppCompatActivity() {
             true
         }
 
-//        findViewById<Button>(R.id.testbutton).setOnClickListener {
-//            val toast = Toast.makeText(this, "Text Sent!", Toast.LENGTH_SHORT)
-//            toast.show()
-//        }
-
 //        Twilio.init("sid", "auth"
 //        )
 //
