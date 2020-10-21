@@ -18,6 +18,17 @@
             android:textAlignment="center"
             android:textColor="@color/coal"
             android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="This is the settings page. "
+            android:textAlignment="center"
+            android:layout_marginTop="60sp"
+            android:textSize="15sp"
+            android:textColor="@color/coal"/>
+
     </RelativeLayout>
 
 </FrameLayout>
