@@ -27,18 +27,18 @@ class MainActivity : AppCompatActivity() {
             true
         }
 
-//        Twilio.init("sid", "auth"
-//        )
-//
+        //todo: add text function here
+
+//        Twilio.init("AC3ad4b03aebb46e83f8b1e546ca50a4f5", "f145f0c99de064e3764cd0079e33c292")
 //
 //        val message = Message.creator(
 //                PhoneNumber("+12672747668"),
 //                PhoneNumber("+16504192614"),
-//                "Hello World!"
+//                "Hello from Starfruit!"
 //        ).create()
 //
 //        print(message.sid)
-    }
+}
 
     private fun makeCurrentFragment(fragment: Fragment) =
             supportFragmentManager.beginTransaction().apply {
