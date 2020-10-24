@@ -6,4 +6,6 @@
     <string name="settingstext">This is the settings page, where users will be able to adjust what time they want to receive their message.</string>
     <string name="abouttext">This app texts you an inspirational message every morning, or whenever you want to receive one everyday.
     it is still in progress, but will be public soon!</string>
+    <string name="channel_name">starfruitchannel</string>
+    <string name="channel_description">A notification channel for the Starfruit app</string>
 </resources>

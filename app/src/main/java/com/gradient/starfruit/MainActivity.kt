@@ -1,6 +1,7 @@
 package com.gradient.starfruit
 
 import android.os.Bundle
+import android.telephony.SmsManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -29,20 +30,16 @@ class MainActivity : AppCompatActivity() {
 
         //todo: add text function here
 
-//        Twilio.init("AC3ad4b03aebb46e83f8b1e546ca50a4f5", "f145f0c99de064e3764cd0079e33c292")
-//
-//        val message = Message.creator(
-//                PhoneNumber("+12672747668"),
-//                PhoneNumber("+16504192614"),
-//                "Hello from Starfruit!"
-//        ).create()
-//
-//        print(message.sid)
-}
 
-    private fun makeCurrentFragment(fragment: Fragment) =
-            supportFragmentManager.beginTransaction().apply {
-                replace(R.id.fl_wrapper, fragment)
-                commit()
-            }
+
+        val smsManager: SmsManager = SmsManager.getDefault()
+
+        smsManager.sendTextMessage("+12672747668", null, "hello!", null, null);
+
+}
+        private fun makeCurrentFragment(fragment: Fragment) =
+                supportFragmentManager.beginTransaction().apply {
+                    replace(R.id.fl_wrapper, fragment)
+                    commit()
+                }
 }
