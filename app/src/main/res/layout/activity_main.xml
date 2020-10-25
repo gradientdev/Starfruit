@@ -7,7 +7,8 @@
     android:background="#f0f0f0"
     android:clipChildren="false"
     android:theme="@style/Theme.Starfruit"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    >
 
     <FrameLayout
         android:id="@+id/fl_wrapper"
@@ -25,5 +26,6 @@
 
         android:elevation="10dp"
         app:menu="@menu/nav_menu" />
+
 
 </RelativeLayout>

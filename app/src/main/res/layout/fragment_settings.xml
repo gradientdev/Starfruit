@@ -32,6 +32,30 @@
             android:textSize="15sp"
             android:textColor="@color/coal"/>
 
+        <TextView
+            android:layout_width="300sp"
+            android:layout_height="60dp"
+            android:layout_centerHorizontal="true"
+            android:textAlignment="center"
+            android:layout_alignBottom="@+id/timepicker"
+            android:textSize="17sp"
+            android:layout_marginBottom="100sp"
+            android:text="What time would you like to receive your message?"/>
+
+        <NumberPicker
+            android:id="@+id/timepicker"
+            android:layout_width="80sp"
+            android:layout_height="80sp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="100sp"
+            android:layout_height="50sp"
+            android:text="save"
+            android:layout_centerHorizontal="true"
+            android:layout_alignTop="@+id/timepicker"
+            android:layout_marginTop="120sp"/>
     </RelativeLayout>
 
 </FrameLayout>
