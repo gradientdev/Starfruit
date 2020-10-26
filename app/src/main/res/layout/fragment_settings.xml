@@ -39,14 +39,16 @@
             android:textAlignment="center"
             android:layout_alignBottom="@+id/timepicker"
             android:textSize="17sp"
-            android:layout_marginBottom="100sp"
+            android:layout_marginBottom="180sp"
             android:text="What time would you like to receive your message?"/>
 
-        <NumberPicker
+        <TimePicker
             android:id="@+id/timepicker"
-            android:layout_width="80sp"
-            android:layout_height="80sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:timePickerMode="spinner"
             android:layout_centerVertical="true"/>
 
         <com.google.android.material.button.MaterialButton
@@ -55,7 +57,7 @@
             android:text="save"
             android:layout_centerHorizontal="true"
             android:layout_alignTop="@+id/timepicker"
-            android:layout_marginTop="120sp"/>
+            android:layout_marginTop="200sp"/>
     </RelativeLayout>
 
 </FrameLayout>

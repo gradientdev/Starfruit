@@ -47,9 +47,9 @@ class MainActivity : AppCompatActivity() {
 
         //todo: start AlarmManger to trigger message
 
+        //todo: set up NumberPicker
 
-
-        //todo: get sms permissions
+        //todo: get sms permissions [WORKING]
 
         @Suppress("DEPRECATED_IDENTITY_EQUALS")
 
@@ -62,7 +62,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        //todo: sends the message
+        //todo: send the message [WORKING]
 
         if (ContextCompat.checkSelfPermission(this@MainActivity, Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED) {
             sendMessage("Hello from Starfruit! \uD83C\uDF20")
