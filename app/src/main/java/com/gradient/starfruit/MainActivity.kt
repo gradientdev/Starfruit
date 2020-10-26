@@ -45,8 +45,6 @@ class MainActivity : AppCompatActivity() {
             true
         }
 
-
-
         //todo: get sms permissions
 
         @Suppress("DEPRECATED_IDENTITY_EQUALS")
