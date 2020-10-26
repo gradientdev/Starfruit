@@ -45,6 +45,10 @@ class MainActivity : AppCompatActivity() {
             true
         }
 
+        //todo: start AlarmManger to trigger message
+
+
+
         //todo: get sms permissions
 
         @Suppress("DEPRECATED_IDENTITY_EQUALS")
@@ -61,10 +65,13 @@ class MainActivity : AppCompatActivity() {
         //todo: sends the message
 
         if (ContextCompat.checkSelfPermission(this@MainActivity, Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED) {
-            val smsManager: SmsManager = SmsManager.getDefault()
-            smsManager.sendTextMessage("+12672747668", null, "Hello from Starfruit! \uD83C\uDF20", null, null);
+            sendMessage("Hello from Starfruit! \uD83C\uDF20")
         }
 }
+    fun sendMessage(text: String) {
+        val smsManager: SmsManager = SmsManager.getDefault()
+        smsManager.sendTextMessage("+12672747668", null, text, null, null);
+    }
 
     private fun makeCurrentFragment(fragment: Fragment) =
                 supportFragmentManager.beginTransaction().apply {
