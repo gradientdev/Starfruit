@@ -30,6 +30,15 @@
             android:textSize="15sp"
             android:textColor="@color/coal"/>
 
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/smstest"
+            android:layout_width="150sp"
+            android:layout_height="70sp"
+            android:text="Test SMS"
+            android:textSize="20sp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"/>
+
     </RelativeLayout>
 
 </FrameLayout>

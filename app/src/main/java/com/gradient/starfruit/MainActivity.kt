@@ -45,6 +45,12 @@ class MainActivity : AppCompatActivity() {
             true
         }
 
+        getSupportActionBar()?.setHomeAsUpIndicator(R.drawable.ic_share)
+        getSupportActionBar()?.setDisplayHomeAsUpEnabled(true);
+
+//        val smsbutton: Button = findViewById(R.id.smstest)
+//        smsbutton.setOnClickListener{ sendMessage("If you got this, SMS seems to be working!") }
+
         //todo: start AlarmManger to trigger message
 
         //todo: set up NumberPicker
