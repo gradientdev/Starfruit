@@ -11,6 +11,7 @@ import android.content.pm.PackageManager
 import android.icu.util.Calendar
 import android.os.Bundle
 import android.telephony.SmsManager
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.app.ActivityCompat
@@ -58,6 +59,8 @@ class MainActivity : AppCompatActivity() {
 //        val smsbutton: Button = findViewById(R.id.smstest)
 //        smsbutton.setOnClickListener{ sendMessage("If you got this, SMS seems to be working!") }
 
+        //todo: receive below alarm
+
         //todo: start AlarmManger to trigger message //////////////////////////////////////////////////
         //todo: https://developer.android.com/training/scheduling/alarms
 
@@ -73,21 +76,24 @@ class MainActivity : AppCompatActivity() {
         lateinit var alarmIntent: PendingIntent
         alarmMgr = this.getSystemService(Context.ALARM_SERVICE) as AlarmManager
         alarmIntent = Intent(this, alarmMgr::class.java).let { intent ->
+            sendMessage("“All our dreams can come true, if we have the courage to pursue them.” – Walt Disney")
+            Toast.makeText(this, "“All our dreams can come true, if we have the courage to pursue them.” – Walt Disney", Toast.LENGTH_LONG).show()
             PendingIntent.getBroadcast(this, 0, intent, 0)
         }
 
         // Setting the alarm to start at 7:15 a.m. This is a placeholder/default, time will be custom in the future
         val calendar: Calendar = Calendar.getInstance().apply {
             timeInMillis = System.currentTimeMillis()
-            set(Calendar.HOUR_OF_DAY, 7)
-            set(Calendar.MINUTE, 15)
+            set(Calendar.HOUR_OF_DAY, 11)
+            set(Calendar.MINUTE, 56)
         }
 
         // setRepeating gives custom time interval, currently set to 24 hours using INTERVAL_DAY
         alarmMgr?.setRepeating(
                 AlarmManager.RTC_WAKEUP,
                 calendar.timeInMillis,
-                AlarmManager.INTERVAL_DAY,
+//                AlarmManager.INTERVAL_DAY,
+                60000,
                 alarmIntent
         )
 
