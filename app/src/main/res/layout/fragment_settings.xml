@@ -52,12 +52,22 @@
             android:layout_centerVertical="true"/>
 
         <com.google.android.material.button.MaterialButton
-            android:layout_width="100sp"
-            android:layout_height="50sp"
+            android:id="@+id/savebutton"
+            android:layout_width="120sp"
+            android:layout_height="60sp"
             android:text="save"
             android:layout_centerHorizontal="true"
             android:layout_alignTop="@+id/timepicker"
             android:layout_marginTop="200sp"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/cancelbutton"
+            android:layout_width="120sp"
+            android:layout_height="60sp"
+            android:text="cancel"
+            android:layout_centerHorizontal="true"
+            android:layout_alignTop="@+id/savebutton"
+            android:layout_marginTop="80sp"/>
     </RelativeLayout>
 
 </FrameLayout>
