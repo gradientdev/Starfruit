@@ -58,7 +58,7 @@ class MainActivity : AppCompatActivity() {
 //        val smsbutton: Button = findViewById(R.id.smstest)
 //        smsbutton.setOnClickListener{ sendMessage("If you got this, SMS seems to be working!") }
 
-        //todo: start AlarmManger to trigger message
+        //todo: start AlarmManger to trigger message //////////////////////////////////////////////////
         //todo: https://developer.android.com/training/scheduling/alarms
 
         val receiver = ComponentName(this, SampleBootReceiver::class.java)
@@ -72,7 +72,7 @@ class MainActivity : AppCompatActivity() {
         var alarmMgr: AlarmManager? = null
         lateinit var alarmIntent: PendingIntent
         alarmMgr = this.getSystemService(Context.ALARM_SERVICE) as AlarmManager
-        alarmIntent = Intent(this, AlarmReceiver::class.java).let { intent ->
+        alarmIntent = Intent(this, alarmMgr::class.java).let { intent ->
             PendingIntent.getBroadcast(this, 0, intent, 0)
         }
 
