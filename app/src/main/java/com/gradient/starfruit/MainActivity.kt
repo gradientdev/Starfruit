@@ -66,7 +66,7 @@ class MainActivity : AppCompatActivity() {
         // Intent part
         val intent = Intent(this, AlarmReceiver::class.java)
         intent.action = "FOO_ACTION"
-        intent.putExtra("KEY_FOO_STRING", "Medium AlarmManager Demo")
+        intent.putExtra("KEY_FOO_STRING", "Alarm triggered!")
 
         val pendingIntent = PendingIntent.getBroadcast(this, 0, intent, 0)
 
@@ -74,14 +74,13 @@ class MainActivity : AppCompatActivity() {
 //        val ALARM_DELAY_IN_SECOND = 10
 //        val alarmTimeAtUTC = System.currentTimeMillis() + ALARM_DELAY_IN_SECOND * 1_000L
 
-        // Set the alarm to start at approximately 2:00 p.m.
         val calendar: Calendar = Calendar.getInstance().apply {
             timeInMillis = System.currentTimeMillis()
             set(Calendar.HOUR_OF_DAY, 20)
             set(Calendar.MINUTE, 9)
         }
 
-        alarmManager.setInexactRepeating(
+        alarmManager.setRepeating(
                 AlarmManager.RTC_WAKEUP,
                 calendar.timeInMillis,
                 AlarmManager.INTERVAL_DAY,
