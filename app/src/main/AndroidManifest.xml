@@ -21,11 +21,10 @@
             </intent-filter>
         </activity>
 
-        <receiver android:name=".MainActivity$SampleBootReceiver"
-            android:enabled="false">
-            <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED"></action>
-            </intent-filter>
+        <receiver
+            android:name=".MainActivity$AlarmReceiver"
+            android:enabled="true"
+            android:exported="true">
         </receiver>
 
     </application>

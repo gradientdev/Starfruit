@@ -4,7 +4,6 @@ import android.Manifest
 import android.app.AlarmManager
 import android.app.PendingIntent
 import android.content.BroadcastReceiver
-import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -59,43 +58,38 @@ class MainActivity : AppCompatActivity() {
 //        val smsbutton: Button = findViewById(R.id.smstest)
 //        smsbutton.setOnClickListener{ sendMessage("If you got this, SMS seems to be working!") }
 
-        //todo: receive below alarm
+        //todo: setup AlarmManager
 
-        //todo: start AlarmManger to trigger message //////////////////////////////////////////////////
-        //todo: https://developer.android.com/training/scheduling/alarms
+        // Get AlarmManager instance
+        val alarmManager = getSystemService(Context.ALARM_SERVICE) as AlarmManager
 
-        val receiver = ComponentName(this, SampleBootReceiver::class.java)
+        // Intent part
+        val intent = Intent(this, AlarmReceiver::class.java)
+        intent.action = "FOO_ACTION"
+        intent.putExtra("KEY_FOO_STRING", "Medium AlarmManager Demo")
 
-        this.packageManager.setComponentEnabledSetting(
-                receiver,
-                PackageManager.COMPONENT_ENABLED_STATE_ENABLED,
-                PackageManager.DONT_KILL_APP
-        )
+        val pendingIntent = PendingIntent.getBroadcast(this, 0, intent, 0)
 
-        var alarmMgr: AlarmManager? = null
-        lateinit var alarmIntent: PendingIntent
-        alarmMgr = this.getSystemService(Context.ALARM_SERVICE) as AlarmManager
-        alarmIntent = Intent(this, alarmMgr::class.java).let { intent ->
-            sendMessage("“All our dreams can come true, if we have the courage to pursue them.” – Walt Disney")
-            Toast.makeText(this, "“All our dreams can come true, if we have the courage to pursue them.” – Walt Disney", Toast.LENGTH_LONG).show()
-            PendingIntent.getBroadcast(this, 0, intent, 0)
-        }
+        // Alarm time
+//        val ALARM_DELAY_IN_SECOND = 10
+//        val alarmTimeAtUTC = System.currentTimeMillis() + ALARM_DELAY_IN_SECOND * 1_000L
 
-        // Setting the alarm to start at 7:15 a.m. This is a placeholder/default, time will be custom in the future
+        // Set the alarm to start at approximately 2:00 p.m.
         val calendar: Calendar = Calendar.getInstance().apply {
             timeInMillis = System.currentTimeMillis()
-            set(Calendar.HOUR_OF_DAY, 11)
-            set(Calendar.MINUTE, 56)
+            set(Calendar.HOUR_OF_DAY, 20)
+            set(Calendar.MINUTE, 9)
         }
 
-        // setRepeating gives custom time interval, currently set to 24 hours using INTERVAL_DAY
-        alarmMgr?.setRepeating(
+        alarmManager.setInexactRepeating(
                 AlarmManager.RTC_WAKEUP,
                 calendar.timeInMillis,
-//                AlarmManager.INTERVAL_DAY,
-                60000,
-                alarmIntent
+                AlarmManager.INTERVAL_DAY,
+                pendingIntent
         )
+
+        // Set with system Alarm Service
+        // Other possible functions: setExact() / setRepeating() / setWindow(), etc
 
         //todo: set up NumberPicker
 
@@ -129,13 +123,14 @@ class MainActivity : AppCompatActivity() {
                     commit()
                 }
 
-    //todo: retrigger alarm if device restarted
-    class SampleBootReceiver : BroadcastReceiver() {
-
+    class AlarmReceiver : BroadcastReceiver() {
         override fun onReceive(context: Context, intent: Intent) {
-            if (intent.action == "android.intent.action.BOOT_COMPLETED") {
-                // Set the alarm here.
+            // Is triggered when alarm goes off, i.e. receiving a system broadcast
+            if (intent.action == "FOO_ACTION") {
+                val fooString = intent.getStringExtra("KEY_FOO_STRING")
+                Toast.makeText(context, fooString, Toast.LENGTH_LONG).show()
             }
         }
     }
+
 }
