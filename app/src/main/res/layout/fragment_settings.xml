@@ -58,7 +58,8 @@
             android:text="save"
             android:layout_centerHorizontal="true"
             android:layout_alignTop="@+id/timepicker"
-            android:layout_marginTop="200sp"/>
+            android:layout_marginTop="200sp"
+            android:onClick="showTimerPickerFragment"/>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/cancelbutton"
@@ -67,7 +68,8 @@
             android:text="cancel"
             android:layout_centerHorizontal="true"
             android:layout_alignTop="@+id/savebutton"
-            android:layout_marginTop="80sp"/>
+            android:layout_marginTop="80sp"
+            android:onClick="cancelAlarm"/>
     </RelativeLayout>
 
 </FrameLayout>
