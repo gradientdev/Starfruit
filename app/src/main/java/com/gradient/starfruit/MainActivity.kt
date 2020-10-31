@@ -9,7 +9,9 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.icu.util.Calendar
 import android.os.Bundle
+import android.os.Vibrator
 import android.telephony.SmsManager
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
@@ -70,14 +72,10 @@ class MainActivity : AppCompatActivity() {
 
         val pendingIntent = PendingIntent.getBroadcast(this, 0, intent, 0)
 
-        // Alarm time
-//        val ALARM_DELAY_IN_SECOND = 10
-//        val alarmTimeAtUTC = System.currentTimeMillis() + ALARM_DELAY_IN_SECOND * 1_000L
-
         val calendar: Calendar = Calendar.getInstance().apply {
             timeInMillis = System.currentTimeMillis()
-            set(Calendar.HOUR_OF_DAY, 20)
-            set(Calendar.MINUTE, 9)
+            set(Calendar.HOUR_OF_DAY, 21)
+            set(Calendar.MINUTE, 42)
         }
 
         alarmManager.setRepeating(
@@ -128,8 +126,16 @@ class MainActivity : AppCompatActivity() {
             if (intent.action == "FOO_ACTION") {
                 val fooString = intent.getStringExtra("KEY_FOO_STRING")
                 Toast.makeText(context, fooString, Toast.LENGTH_LONG).show()
+                val vibrator = context.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
+                vibrator.vibrate(200)
             }
         }
+    }
+
+    fun smsButton(v: View?) {
+        //do stuffs
+        Toast.makeText(this, "SMS test sent!", Toast.LENGTH_SHORT).show()
+        sendMessage("If you receive this message, SMS seems to be working!")
     }
 
 }
