@@ -57,8 +57,11 @@ class MainActivity : AppCompatActivity() {
         getSupportActionBar()?.setHomeAsUpIndicator(R.drawable.ic_share)
         getSupportActionBar()?.setDisplayHomeAsUpEnabled(true);
 
-//        val smsbutton: Button = findViewById(R.id.smstest)
-//        smsbutton.setOnClickListener{ sendMessage("If you got this, SMS seems to be working!") }
+//        val smsbutton: Button = findViewById(R.id.smsButton)
+//        smsbutton.setOnClickListener{
+//            sendMessage("If you got this, SMS seems to be working!")
+//            Toast.makeText(this, "SMS test message sent!", Toast.LENGTH_SHORT).show()
+//        }
 
         //todo: setup AlarmManager
 
@@ -132,7 +135,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun smsButton(v: View?) {
+    public fun smsButton(v: View?) {
         //do stuffs
         Toast.makeText(this, "SMS test sent!", Toast.LENGTH_SHORT).show()
         sendMessage("If you receive this message, SMS seems to be working!")

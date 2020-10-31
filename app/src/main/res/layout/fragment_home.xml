@@ -41,14 +41,14 @@
             android:textAlignment="center"/>
 
         <com.google.android.material.button.MaterialButton
+            android:id="@+id/smsButton"
             android:layout_width="150sp"
             android:layout_height="70sp"
             android:text="Test SMS"
             android:textSize="20sp"
             android:layout_alignTop="@+id/homeInfo"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="400sp"
-            android:onClick="smsButton"/>
+            android:layout_marginTop="400sp" />
 
     </RelativeLayout>
 
