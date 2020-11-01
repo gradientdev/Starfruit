@@ -39,22 +39,22 @@ class MainActivity : AppCompatActivity() {
             when (it.itemId){
                 R.id.ic_home -> {
                     makeCurrentFragment(homeFragment)
-                    getSupportActionBar()?.setTitle("Starfruit")
+                    supportActionBar?.setTitle("Starfruit")
                 }
                 R.id.ic_settings -> {
                     makeCurrentFragment(settingsFragment)
-                    getSupportActionBar()?.setTitle("Settings")
+                    supportActionBar?.setTitle("Settings")
                 }
                 R.id.ic_about -> {
                     makeCurrentFragment(aboutFragment)
-                    getSupportActionBar()?.setTitle("About")
+                    supportActionBar?.setTitle("About")
                 }
             }
             true
         }
 
-        getSupportActionBar()?.setHomeAsUpIndicator(R.drawable.ic_share)
-        getSupportActionBar()?.setDisplayHomeAsUpEnabled(true);
+        supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_share)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
 //        val smsbutton: Button = findViewById(R.id.smsButton)
 //        smsbutton.setOnClickListener{
@@ -113,7 +113,7 @@ class MainActivity : AppCompatActivity() {
 }
     fun sendMessage(text: String) {
         val smsManager: SmsManager = SmsManager.getDefault()
-        smsManager.sendTextMessage("+12672747668", null, text, null, null);
+        smsManager.sendTextMessage("+12672747668", null, text, null, null)
     }
 
     private fun makeCurrentFragment(fragment: Fragment) =
