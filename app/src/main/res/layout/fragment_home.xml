@@ -33,7 +33,7 @@
         <com.google.android.material.textview.MaterialTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="No alarm set"
+            android:text="No time set"
             android:textColor="@color/coal"
             android:textStyle="bold"
             android:textSize="40sp"
@@ -48,7 +48,7 @@
             android:textSize="20sp"
             android:layout_alignTop="@+id/homeInfo"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="400sp" />
+            android:layout_marginTop="400sp"/>
 
     </RelativeLayout>
 
