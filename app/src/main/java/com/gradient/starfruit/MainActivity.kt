@@ -11,7 +11,6 @@ import android.icu.util.Calendar
 import android.os.Bundle
 import android.os.Vibrator
 import android.telephony.SmsManager
-import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
@@ -77,13 +76,12 @@ class MainActivity : AppCompatActivity() {
 
         val calendar: Calendar = Calendar.getInstance().apply {
             timeInMillis = System.currentTimeMillis()
-            set(Calendar.HOUR_OF_DAY, 14)
-            set(Calendar.MINUTE, 23)
+            set(Calendar.HOUR_OF_DAY, 15)
+            set(Calendar.MINUTE, 59)
         }
 
-        if (calendar.timeInMillis < System.currentTimeMillis()) {
-            Log.e("setAlarm","time is in past")
-            calendar.add(Calendar.DAY_OF_YEAR, 1) // it will tell to run to next day
+        if (calendar.timeInMillis < System.currentTimeMillis()) { // checks if alarm time is earlier than system time
+            calendar.add(Calendar.DAY_OF_YEAR, 1) // goes to next day
         }
 
         alarmManager.setRepeating(

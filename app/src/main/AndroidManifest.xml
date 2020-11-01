@@ -23,10 +23,11 @@
             </intent-filter>
         </activity>
 
-        <receiver
-            android:name=".MainActivity$AlarmReceiver"
-            android:enabled="true"
+        <receiver android:name=".MainActivity$AlarmReceiver"
             android:exported="true">
+            <intent-filter>
+                <action android:name="FOO_ACTION" ></action>
+            </intent-filter>
         </receiver>
 
     </application>
