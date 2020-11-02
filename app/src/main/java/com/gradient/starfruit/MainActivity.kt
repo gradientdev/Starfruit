@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
         val navbar = findViewById<BottomNavigationView>(R.id.bottom_navigation)
 
         navbar.setOnNavigationItemSelectedListener {
-            when (it.itemId){
+            when (it.itemId) {
                 R.id.ic_home -> {
                     makeCurrentFragment(homeFragment)
                     supportActionBar?.setTitle("Starfruit")
@@ -76,8 +76,8 @@ class MainActivity : AppCompatActivity() {
 
         val calendar: Calendar = Calendar.getInstance().apply {
             timeInMillis = System.currentTimeMillis()
-            set(Calendar.HOUR_OF_DAY, 15)
-            set(Calendar.MINUTE, 59)
+            set(Calendar.HOUR_OF_DAY, 22)
+            set(Calendar.MINUTE, 5)
         }
 
         if (calendar.timeInMillis < System.currentTimeMillis()) { // checks if alarm time is earlier than system time
@@ -114,26 +114,45 @@ class MainActivity : AppCompatActivity() {
         if (ContextCompat.checkSelfPermission(this@MainActivity, Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED) {
             sendMessage("Hello from Starfruit! \uD83C\uDF20")
         }
-}
+    }
+
     fun sendMessage(text: String) {
-        val smsManager: SmsManager = SmsManager.getDefault()
+        val smsManager = SmsManager.getDefault()
         smsManager.sendTextMessage("+12672747668", null, text, null, null)
     }
 
     private fun makeCurrentFragment(fragment: Fragment) =
-                supportFragmentManager.beginTransaction().apply {
-                    replace(R.id.fl_wrapper, fragment)
-                    commit()
-                }
+            supportFragmentManager.beginTransaction().apply {
+                replace(R.id.fl_wrapper, fragment)
+                commit()
+            }
 
     class AlarmReceiver : BroadcastReceiver() {
+        @Suppress("DEPRECATION")
         override fun onReceive(context: Context, intent: Intent) {
-            // Is triggered when alarm goes off, i.e. receiving a system broadcast
             if (intent.action == "FOO_ACTION") {
                 val fooString = intent.getStringExtra("KEY_FOO_STRING")
                 Toast.makeText(context, fooString, Toast.LENGTH_LONG).show()
-                val vibrator = context.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
-                vibrator.vibrate(400)
+
+                // quote that is being sent. Will be read from a json in the future, but is solid for now
+                var quote = "“If something is important enough, even if the odds are stacked against you, you should still do it.” – Elon Musk"
+
+                // check if quote has more than 70 characters, and split if needed
+                if (quote.count() > 70) {
+                    val smsManager = SmsManager.getDefault()
+                    var quoteParts = smsManager.divideMessage(quote)
+                    // send split quote portions separately with a for loop
+                    for (quote in quoteParts) {
+                        smsManager.sendTextMessage("+12672747668", null, "$quote ", null, null)
+                        val vibrator = context.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator; vibrator.vibrate(400)
+                    }
+                }
+                //send everything in one piece if quote is 70 chars or under
+                else {
+                    val smsManager = SmsManager.getDefault()
+                    smsManager.sendTextMessage("+12672747668", null, quote, null, null)
+                    val vibrator = context.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator; vibrator.vibrate(400)
+                }
             }
         }
     }
