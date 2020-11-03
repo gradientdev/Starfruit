@@ -62,6 +62,8 @@ class MainActivity : AppCompatActivity() {
 //            Toast.makeText(this, "SMS test message sent!", Toast.LENGTH_SHORT).show()
 //        }
 
+        //todo: set up sms button
+
         //todo: setup AlarmManager
 
         // Get AlarmManager instance
@@ -137,14 +139,13 @@ class MainActivity : AppCompatActivity() {
                 // quote that is being sent. Will be read from a json in the future, but is solid for now
                 var quote = "“If something is important enough, even if the odds are stacked against you, you should still do it.” – Elon Musk"
 
-                // check if quote has more than 70 characters, and split if needed
+                // check if quote has more than 70 characters, and split if neede
                 if (quote.count() > 70) {
                     val smsManager = SmsManager.getDefault()
                     var quoteParts = smsManager.divideMessage(quote)
                     // send split quote portions separately with a for loop
                     for (quote in quoteParts) {
                         smsManager.sendTextMessage("+12672747668", null, "$quote ", null, null)
-                        val vibrator = context.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator; vibrator.vibrate(400)
                     }
                 }
                 //send everything in one piece if quote is 70 chars or under
