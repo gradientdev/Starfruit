@@ -35,22 +35,33 @@ class HomeFragment : Fragment() {
         }
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         // Inflate the layout for this fragment
         val view: View = inflater.inflate(R.layout.fragment_home, container, false)
 
         view.smsButton.setOnClickListener { view ->
             Log.d("btnSetup", "Selected")
             val smsManager = SmsManager.getDefault()
-            smsManager.sendTextMessage("+12672747668", null, "This is an SMS test message from Starfruit!", null, null)
-            val vibrator = context?.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator; vibrator.vibrate(50)
+            smsManager.sendTextMessage(
+                "+12672747668",
+                null,
+                "This is an SMS test message from Starfruit!",
+                null,
+                null
+            )
+            val vibrator =
+                context?.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator; vibrator.vibrate(
+            150
+        )
             Toast.makeText(context, "Message sent!", Toast.LENGTH_LONG).show()
         }
 
         // Return the fragment view/layout
         return view
-        }
+    }
 
     companion object {
         fun newInstance(): HomeFragment {
