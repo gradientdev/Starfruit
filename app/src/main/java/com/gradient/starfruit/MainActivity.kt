@@ -76,8 +76,8 @@ class MainActivity : AppCompatActivity() {
 
         val calendar: Calendar = Calendar.getInstance().apply {
             timeInMillis = System.currentTimeMillis()
-            set(Calendar.HOUR_OF_DAY, 22)
-            set(Calendar.MINUTE, 5)
+            set(Calendar.HOUR_OF_DAY,7)
+            set(Calendar.MINUTE, 10)
         }
 
         if (calendar.timeInMillis < System.currentTimeMillis()) { // checks if alarm time is earlier than system time
