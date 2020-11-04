@@ -62,7 +62,7 @@ class MainActivity : AppCompatActivity() {
 //            Toast.makeText(this, "SMS test message sent!", Toast.LENGTH_SHORT).show()
 //        }
 
-        //todo: set up sms button
+        //todo: TimePicker
 
         //todo: setup AlarmManager
 
@@ -113,9 +113,9 @@ class MainActivity : AppCompatActivity() {
 
         //todo: send the message [WORKING]
 
-        if (ContextCompat.checkSelfPermission(this@MainActivity, Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED) {
-            sendMessage("Hello from Starfruit! \uD83C\uDF20")
-        }
+//        if (ContextCompat.checkSelfPermission(this@MainActivity, Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED) {
+//            sendMessage("Hello from Starfruit! \uD83C\uDF20")
+//        }
     }
 
     fun sendMessage(text: String) {
@@ -137,7 +137,7 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(context, fooString, Toast.LENGTH_LONG).show()
 
                 // quote that is being sent. Will be read from a json in the future, but is solid for now
-                var quote = "“If something is important enough, even if the odds are stacked against you, you should still do it.” – Elon Musk"
+                var quote = "“At any given moment you have the power to say: this is not how the story is going to end.” – Unknown"
 
                 // check if quote has more than 70 characters, and split if neede
                 if (quote.count() > 70) {
@@ -157,4 +157,5 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+    // this part marks the end of the OnCreate, just in mainactivity now
 }

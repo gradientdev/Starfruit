@@ -48,15 +48,15 @@ class HomeFragment : Fragment() {
             smsManager.sendTextMessage(
                 "+12672747668",
                 null,
-                "This is an SMS test message from Starfruit!",
+                "This is an SMS test message from Starfruit! \uD83C\uDF86",
                 null,
                 null
             )
+            Toast.makeText(context, "Message sent!", Toast.LENGTH_LONG).show()
             val vibrator =
                 context?.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator; vibrator.vibrate(
             150
         )
-            Toast.makeText(context, "Message sent!", Toast.LENGTH_LONG).show()
         }
 
         // Return the fragment view/layout
