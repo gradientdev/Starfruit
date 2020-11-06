@@ -1,10 +1,16 @@
 package com.gradient.starfruit
 
+import android.content.Context
 import android.os.Bundle
+import android.os.Vibrator
+import android.telephony.SmsManager
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import kotlinx.android.synthetic.main.fragment_settings.view.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -35,6 +41,22 @@ class SettingsFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view: View = inflater.inflate(R.layout.fragment_settings, container, false)
+
+        view.smsButton.setOnClickListener { view ->
+            Log.d("btnSetup", "Selected")
+            val smsManager = SmsManager.getDefault()
+            smsManager.sendTextMessage(
+                "+12672747668",
+                null,
+                "This is an SMS test message from Starfruit! \uD83C\uDF86",
+                null,
+                null
+            )
+            Toast.makeText(context, "Message sent!", Toast.LENGTH_LONG).show()
+            val vibrator =
+                context?.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator; vibrator.vibrate(
+            150)
+        }
 
         // Return the fragment view/layout
         return view

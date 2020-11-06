@@ -1,16 +1,13 @@
 package com.gradient.starfruit
 
-import android.content.Context
+import android.app.TimePickerDialog
 import android.os.Bundle
-import android.os.Vibrator
-import android.telephony.SmsManager
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_home.view.*
+import java.util.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -42,21 +39,13 @@ class HomeFragment : Fragment() {
         // Inflate the layout for this fragment
         val view: View = inflater.inflate(R.layout.fragment_home, container, false)
 
-        view.smsButton.setOnClickListener { view ->
-            Log.d("btnSetup", "Selected")
-            val smsManager = SmsManager.getDefault()
-            smsManager.sendTextMessage(
-                "+12672747668",
-                null,
-                "This is an SMS test message from Starfruit! \uD83C\uDF86",
-                null,
-                null
-            )
-            Toast.makeText(context, "Message sent!", Toast.LENGTH_LONG).show()
-            val vibrator =
-                context?.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator; vibrator.vibrate(
-            150
-        )
+        view.timeButton.setOnClickListener {
+            val cal = Calendar.getInstance()
+            val timeSetListener = TimePickerDialog.OnTimeSetListener { timePicker, hour, minute ->
+                cal.set(Calendar.HOUR_OF_DAY, hour)
+                cal.set(Calendar.MINUTE, minute)
+            }
+            TimePickerDialog(context, timeSetListener, cal.get(Calendar.HOUR_OF_DAY), cal.get(Calendar.MINUTE), false).show()
         }
 
         // Return the fragment view/layout
