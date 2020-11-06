@@ -53,7 +53,7 @@ class MainActivity : AppCompatActivity() {
             true
         }
 
-        supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_share)
+        supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_star)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
 //        val smsbutton: Button = findViewById(R.id.smsButton)

@@ -34,7 +34,7 @@
             android:id="@+id/alarmText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="No time set"
+            android:text="@string/no_time_set"
             android:textColor="@color/coal"
             android:textStyle="bold"
             android:textSize="40sp"

@@ -47,7 +47,7 @@ class HomeFragment : Fragment() {
                 cal.set(Calendar.HOUR_OF_DAY, hour)
                 cal.set(Calendar.MINUTE, minute)
 
-                alarmText.text = "Texts at " + SimpleDateFormat("HH:mm").format(cal.time)
+                alarmText.text = ("Texts at " + SimpleDateFormat("HH:mm").format(cal.time))
             }
             TimePickerDialog(context, timeSetListener, cal.get(Calendar.HOUR_OF_DAY), cal.get(Calendar.MINUTE), false).show()
         }
