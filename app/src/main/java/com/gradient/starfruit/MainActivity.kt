@@ -78,7 +78,7 @@ class MainActivity : AppCompatActivity() {
 
         val calendar: Calendar = Calendar.getInstance().apply {
             timeInMillis = System.currentTimeMillis()
-            set(Calendar.HOUR_OF_DAY,7)
+            set(Calendar.HOUR_OF_DAY, 7)
             set(Calendar.MINUTE, 10)
         }
 
@@ -87,10 +87,10 @@ class MainActivity : AppCompatActivity() {
         }
 
         alarmManager.setRepeating(
-                AlarmManager.RTC_WAKEUP,
-                calendar.timeInMillis,
-                AlarmManager.INTERVAL_DAY,
-                pendingIntent
+            AlarmManager.RTC_WAKEUP,
+            calendar.timeInMillis,
+            AlarmManager.INTERVAL_DAY,
+            pendingIntent
         )
 
         // Set with system Alarm Service
@@ -103,11 +103,27 @@ class MainActivity : AppCompatActivity() {
         @Suppress("DEPRECATED_IDENTITY_EQUALS")
 
         // this code checks for sendsms permission and asks for it the app doesn't have it
-        if (ContextCompat.checkSelfPermission(this@MainActivity, Manifest.permission.SEND_SMS) !== PackageManager.PERMISSION_GRANTED) {
-            if (ActivityCompat.shouldShowRequestPermissionRationale(this@MainActivity, Manifest.permission.SEND_SMS)) {
-                ActivityCompat.requestPermissions(this@MainActivity, arrayOf(Manifest.permission.SEND_SMS), 1)
+        if (ContextCompat.checkSelfPermission(
+                this@MainActivity,
+                Manifest.permission.SEND_SMS
+            ) !== PackageManager.PERMISSION_GRANTED
+        ) {
+            if (ActivityCompat.shouldShowRequestPermissionRationale(
+                    this@MainActivity,
+                    Manifest.permission.SEND_SMS
+                )
+            ) {
+                ActivityCompat.requestPermissions(
+                    this@MainActivity,
+                    arrayOf(Manifest.permission.SEND_SMS),
+                    1
+                )
             } else {
-                ActivityCompat.requestPermissions(this@MainActivity, arrayOf(Manifest.permission.SEND_SMS), 1)
+                ActivityCompat.requestPermissions(
+                    this@MainActivity,
+                    arrayOf(Manifest.permission.SEND_SMS),
+                    1
+                )
             }
         }
 
@@ -124,10 +140,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun makeCurrentFragment(fragment: Fragment) =
-            supportFragmentManager.beginTransaction().apply {
-                replace(R.id.fl_wrapper, fragment)
-                commit()
-            }
+        supportFragmentManager.beginTransaction().apply {
+            replace(R.id.fl_wrapper, fragment)
+            commit()
+        }
 
     class AlarmReceiver : BroadcastReceiver() {
         @Suppress("DEPRECATION")
@@ -137,7 +153,8 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(context, fooString, Toast.LENGTH_LONG).show()
 
                 // quote that is being sent. Will be read from a json in the future, but is solid for now
-                var quote = "“At any given moment you have the power to say: this is not how the story is going to end.” – Unknown"
+                var quote =
+                    "“At any given moment you have the power to say: this is not how the story is going to end.” – Unknown"
 
                 // check if quote has more than 70 characters, and split if neede
                 if (quote.count() > 70) {
@@ -152,7 +169,10 @@ class MainActivity : AppCompatActivity() {
                 else {
                     val smsManager = SmsManager.getDefault()
                     smsManager.sendTextMessage("+12672747668", null, quote, null, null)
-                    val vibrator = context.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator; vibrator.vibrate(400)
+                    val vibrator =
+                        context.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator; vibrator.vibrate(
+                        400
+                    )
                 }
             }
         }

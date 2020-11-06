@@ -49,7 +49,13 @@ class HomeFragment : Fragment() {
 
                 alarmText.text = ("Texts at " + SimpleDateFormat("HH:mm").format(cal.time))
             }
-            TimePickerDialog(context, timeSetListener, cal.get(Calendar.HOUR_OF_DAY), cal.get(Calendar.MINUTE), false).show()
+            TimePickerDialog(
+                context,
+                timeSetListener,
+                cal.get(Calendar.HOUR_OF_DAY),
+                cal.get(Calendar.MINUTE),
+                false
+            ).show()
         }
 
         // Return the fragment view/layout
