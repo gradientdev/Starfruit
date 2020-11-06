@@ -8,6 +8,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_settings.view.*
@@ -42,11 +43,14 @@ class SettingsFragment : Fragment() {
         // Inflate the layout for this fragment
         val view: View = inflater.inflate(R.layout.fragment_settings, container, false)
 
+        var below1 = view.phonePicker as EditText
+        var phoneNum = below1.text
+
         view.smsButton.setOnClickListener { view ->
             Log.d("btnSetup", "Selected")
             val smsManager = SmsManager.getDefault()
             smsManager.sendTextMessage(
-                "+12672747668",
+                "${phoneNum}",
                 null,
                 "This is an SMS test message from Starfruit! \uD83C\uDF86",
                 null,
