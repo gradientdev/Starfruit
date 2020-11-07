@@ -1,12 +1,14 @@
 package com.gradient.starfruit
 
 import android.app.TimePickerDialog
+import android.content.SharedPreferences
+import android.net.ParseException
 import android.os.Bundle
+import android.preference.PreferenceManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_home.view.*
 import java.text.SimpleDateFormat
 import java.util.*
@@ -21,6 +23,7 @@ private const val ARG_PARAM2 = "param2"
  * Use the [HomeFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
+@Suppress("DEPRECATION")
 class HomeFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
@@ -41,13 +44,29 @@ class HomeFragment : Fragment() {
         // Inflate the layout for this fragment
         val view: View = inflater.inflate(R.layout.fragment_home, container, false)
 
+        try {
+            val preferences: SharedPreferences = PreferenceManager.getDefaultSharedPreferences(context)
+            val simpleDateFormat = SimpleDateFormat("HH:mm")
+            val date = simpleDateFormat.parse(preferences.getString("mydate", ""))
+            val formattedDate = simpleDateFormat.format(date)
+
+            view.alarmText.text = ("Messages at " + formattedDate)
+        }
+        catch (e: ParseException) {
+        }
+
         view.timeButton.setOnClickListener {
             val cal = Calendar.getInstance()
             val timeSetListener = TimePickerDialog.OnTimeSetListener { timePicker, hour, minute ->
                 cal.set(Calendar.HOUR_OF_DAY, hour)
                 cal.set(Calendar.MINUTE, minute)
 
-                alarmText.text = ("Texts at " + SimpleDateFormat("HH:mm").format(cal.time))
+                val simpleDateFormat = SimpleDateFormat("HH:mm")
+                val date = simpleDateFormat.format(cal.time)
+                view.alarmText.text = ("Texts at " + date)
+
+                val preferences: SharedPreferences = PreferenceManager.getDefaultSharedPreferences(context)
+                preferences.edit().putString("mydate", date).apply();
             }
             TimePickerDialog(
                 context,
