@@ -45,14 +45,14 @@ class HomeFragment : Fragment() {
         val view: View = inflater.inflate(R.layout.fragment_home, container, false)
 
         try {
-            val preferences: SharedPreferences = PreferenceManager.getDefaultSharedPreferences(context)
+            val preferences: SharedPreferences =
+                PreferenceManager.getDefaultSharedPreferences(context)
             val simpleDateFormat = SimpleDateFormat("HH:mm")
             val date = simpleDateFormat.parse(preferences.getString("mydate", ""))
             val formattedDate = simpleDateFormat.format(date)
 
-            view.alarmText.text = ("Messages at " + formattedDate)
-        }
-        catch (e: ParseException) {
+            view.alarmText.text = ("Text at " + formattedDate)
+        } catch (e: ParseException) {
         }
 
         view.timeButton.setOnClickListener {
@@ -65,7 +65,8 @@ class HomeFragment : Fragment() {
                 val date = simpleDateFormat.format(cal.time)
                 view.alarmText.text = ("Texts at " + date)
 
-                val preferences: SharedPreferences = PreferenceManager.getDefaultSharedPreferences(context)
+                val preferences: SharedPreferences =
+                    PreferenceManager.getDefaultSharedPreferences(context)
                 preferences.edit().putString("mydate", date).apply();
             }
             TimePickerDialog(
