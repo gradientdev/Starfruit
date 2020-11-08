@@ -10,7 +10,7 @@
         android:id="@+id/shapeableImageView"
         android:layout_width="100sp"
         android:layout_height="100sp"
-        android:layout_marginTop="220sp"
+        android:layout_marginTop="250sp"
         android:src="@drawable/starfruit"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

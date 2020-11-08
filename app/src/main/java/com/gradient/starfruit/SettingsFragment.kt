@@ -71,7 +71,7 @@ class SettingsFragment : Fragment() {
             Toast.makeText(context, "Number saved!", Toast.LENGTH_LONG).show()
             val vibrator =
                 context?.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator; vibrator.vibrate(
-            150)
+            100)
         }
 
         view.smsButton.setOnClickListener { view ->
@@ -93,7 +93,7 @@ class SettingsFragment : Fragment() {
             Toast.makeText(context, "Message sent!", Toast.LENGTH_LONG).show()
             val vibrator =
                 context?.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator; vibrator.vibrate(
-            150)
+            100)
         }
 
         // Return the fragment view/layout
