@@ -49,7 +49,17 @@
             android:layout_marginTop="270sp"
             android:inputType="phone"
             android:textAlignment="center"
-            android:hint="+12223334444" />
+            android:hint="+12223334444"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/saveButton"
+            android:layout_width="170sp"
+            android:layout_height="60sp"
+            android:text="Save"
+            android:textSize="20sp"
+            android:layout_alignTop="@+id/phonePicker"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="90sp"/>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/smsButton"
@@ -57,9 +67,9 @@
             android:layout_height="60sp"
             android:text="Test SMS"
             android:textSize="20sp"
-            android:layout_alignTop="@+id/homeInfo"
+            android:layout_alignTop="@+id/saveButton"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="360sp"/>
+            android:layout_marginTop="90sp"/>
 
     </RelativeLayout>
 
