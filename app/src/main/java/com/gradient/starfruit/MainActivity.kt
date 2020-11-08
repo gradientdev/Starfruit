@@ -6,10 +6,12 @@ import android.app.PendingIntent
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.content.pm.PackageManager
 import android.icu.util.Calendar
 import android.os.Bundle
 import android.os.Vibrator
+import android.preference.PreferenceManager
 import android.telephony.SmsManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -55,12 +57,6 @@ class MainActivity : AppCompatActivity() {
 
         supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_star)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
-//        val smsbutton: Button = findViewById(R.id.smsButton)
-//        smsbutton.setOnClickListener{
-//            sendMessage("If you got this, SMS seems to be working!")
-//            Toast.makeText(this, "SMS test message sent!", Toast.LENGTH_SHORT).show()
-//        }
 
         //todo: TimePicker
 
@@ -145,6 +141,7 @@ class MainActivity : AppCompatActivity() {
             commit()
         }
 
+    // code below runs when alarm is triggered
     class AlarmReceiver : BroadcastReceiver() {
         @Suppress("DEPRECATION")
         override fun onReceive(context: Context, intent: Intent) {
@@ -153,22 +150,26 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(context, fooString, Toast.LENGTH_LONG).show()
 
                 // quote that is being sent. Will be read from a json in the future, but is solid for now
-                var quote =
-                    "“At any given moment you have the power to say: this is not how the story is going to end.” – Unknown"
+                var quote = "“One day or day one. You decide.” – Unknown"
 
-                // check if quote has more than 70 characters, and split if neede
+                //gets phone number saved earlier from preferences
+                val preferences: SharedPreferences =
+                    PreferenceManager.getDefaultSharedPreferences(context)
+                val num = (preferences.getString("phoneNumber", "").toString())
+
+                // check if quote has more than 70 characters, and split if needed
                 if (quote.count() > 70) {
                     val smsManager = SmsManager.getDefault()
                     var quoteParts = smsManager.divideMessage(quote)
                     // send split quote portions separately with a for loop
                     for (quote in quoteParts) {
-                        smsManager.sendTextMessage("+12672747668", null, "$quote ", null, null)
+                        smsManager.sendTextMessage(num, null, quote, null, null)
                     }
                 }
                 //send everything in one piece if quote is 70 chars or under
                 else {
                     val smsManager = SmsManager.getDefault()
-                    smsManager.sendTextMessage("+12672747668", null, quote, null, null)
+                    smsManager.sendTextMessage(num, null, quote, null, null)
                     val vibrator =
                         context.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator; vibrator.vibrate(
                         400

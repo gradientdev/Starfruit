@@ -48,10 +48,12 @@ class HomeFragment : Fragment() {
             val preferences: SharedPreferences =
                 PreferenceManager.getDefaultSharedPreferences(context)
             val simpleDateFormat = SimpleDateFormat("HH:mm")
-            val date = simpleDateFormat.parse(preferences.getString("mydate", ""))
-            val formattedDate = simpleDateFormat.format(date)
 
-            view.alarmText.text = ("Text at " + formattedDate)
+            if (preferences.getString("mydate", "") != "") {
+                val date = simpleDateFormat.parse(preferences.getString("mydate", ""))
+                val formattedDate = simpleDateFormat.format(date)
+                view.alarmText.text = ("Text at " + formattedDate)
+            }
         } catch (e: ParseException) {
         }
 
