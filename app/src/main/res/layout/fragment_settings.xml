@@ -3,9 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".SettingsFragment"
-    android:layout_margin="20dp">
+    android:layout_margin="20dp"
+    tools:context=".SettingsFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <RelativeLayout
@@ -13,11 +12,11 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:fontFamily="@font/pulpdisplay"
             android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/roundededges"
+            android:fontFamily="@font/pulpdisplay"
             android:padding="10sp"
             android:text="@string/settingstext"
             android:textAlignment="center"
@@ -25,52 +24,52 @@
             android:textSize="15sp" />
 
         <TextView
-            android:fontFamily="@font/pulpdisplay"
             android:layout_width="300sp"
             android:layout_height="60dp"
             android:layout_centerHorizontal="true"
+            android:layout_marginTop="180sp"
+            android:fontFamily="@font/pulpdisplay"
+            android:text="What phone number do you want to receive your message?"
             android:textAlignment="center"
-            android:textSize="17sp"
-            android:layout_marginTop="200sp"
-            android:text="What phone number do you want to receive your message?"/>
+            android:textSize="17sp" />
 
         <com.google.android.material.textfield.TextInputEditText
-            android:fontFamily="@font/pulpdisplay"
             android:id="@+id/phonePicker"
             android:layout_width="300sp"
             android:layout_height="50sp"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="300sp"
+            android:layout_marginTop="270sp"
+            android:fontFamily="@font/pulpdisplay"
+            android:hint="+12223334444"
             android:inputType="phone"
-            android:textAlignment="center"
-            android:hint="+12223334444"/>
+            android:textAlignment="center" />
 
         <com.google.android.material.button.MaterialButton
-            android:fontFamily="@font/pulpdisplay"
             android:id="@+id/saveButton"
             android:layout_width="170sp"
             android:layout_height="60sp"
-            android:text="Save"
-            android:textSize="20sp"
+            android:layout_alignBottom="@+id/smsButton"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="90sp"
-            android:layout_alignBottom="@+id/smsButton"
             android:layout_marginBottom="80sp"
+            android:fontFamily="@font/pulpdisplay"
+            android:text="Save"
             android:textAllCaps="false"
-            android:textStyle="bold"/>
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
         <com.google.android.material.button.MaterialButton
-            android:fontFamily="@font/pulpdisplay"
             android:id="@+id/smsButton"
             android:layout_width="170sp"
             android:layout_height="60sp"
-            android:text="Test SMS"
-            android:textSize="20sp"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="50sp"
+            android:fontFamily="@font/pulpdisplay"
+            android:text="Test SMS"
             android:textAllCaps="false"
-            android:textStyle="bold"/>
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
     </RelativeLayout>
 

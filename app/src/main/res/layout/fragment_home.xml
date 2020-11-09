@@ -3,41 +3,40 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeFragment"
-    android:layout_margin="20dp">
+    android:layout_margin="20dp"
+    tools:context=".HomeFragment">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <TextView
-            android:fontFamily="@font/pulpdisplay"
-            android:padding="10sp"
             android:id="@+id/homeInfo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="60sp"
+            android:background="@drawable/roundededges"
+            android:fontFamily="@font/pulpdisplay"
+            android:padding="10sp"
             android:text="@string/hometext"
             android:textAlignment="center"
-            android:textSize="15sp"
             android:textColor="@color/subtitle"
-            android:background="@drawable/roundededges"
 
-            android:layout_marginBottom="60sp"/>
+            android:textSize="15sp" />
 
         <com.google.android.material.textview.MaterialTextView
-            android:fontFamily="@font/pulpdisplay"
             android:id="@+id/alarmText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/no_time_set"
-            android:textColor="@color/coal"
-            android:textStyle="bold"
-            android:textSize="40sp"
             android:layout_centerVertical="true"
-            android:textAlignment="center"/>
+            android:fontFamily="@font/pulpdisplay"
+            android:text="@string/no_time_set"
+            android:textAlignment="center"
+            android:textColor="@color/coal"
+            android:textSize="40sp"
+            android:textStyle="bold" />
 
         <com.google.android.material.button.MaterialButton
-            android:fontFamily="@font/pulpdisplay"
             android:id="@+id/timeButton"
             android:layout_width="250sp"
             android:layout_height="70sp"
@@ -45,10 +44,11 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="400sp"
             android:layout_marginBottom="50dp"
+            android:fontFamily="@font/pulpdisplay"
             android:text="Pick time"
             android:textAllCaps="false"
-            android:textStyle="bold"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
     </RelativeLayout>
 
