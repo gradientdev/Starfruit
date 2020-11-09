@@ -2,13 +2,14 @@
     <string name="app_name">Starfruit</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="hometext">This is the main page, where important info will be displayed. </string>
-    <string name="settingstext">This is the settings page, Where users will be able to choose where they want to receive their message.</string>
+    <string name="hometext">Set the time that you want to be sent your quote below.</string>
+    <string name="settingstext">This is the settings page. You can pick and test the number that you want to receive messages at.</string>
     <string name="abouttext">
-    This app will text you an inspirational quote every morning, or whenever you want to receive one every day.
+    Starfruit texts you a motivational quote at whatever time you choose every day.
     \n\nIt is still in progress, but will be public soon!
     \n\nStarfruit uses your phone\'s built-in messaging app to send quotes, keeping the app completely microtransaction and ad free!
-    \n\nIf you have any questions, comments, or feedback, then feel free to email me at xinyunzhouu@gmail.com!
+    \n\nIf you are enjoying the app, I would really appreciate a review.
+    \n\nAny questions, comments, or feedback? feel free to email me at xinyunzhouu@gmail.com!
     </string>
     <string name="channel_name">starfruitchannel</string>
     <string name="channel_description">A notification channel for the Starfruit app</string>
