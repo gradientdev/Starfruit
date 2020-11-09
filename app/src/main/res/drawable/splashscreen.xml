@@ -3,9 +3,18 @@
     android:opacity="opaque">
     <item android:drawable="@color/white"/>
     <item
+        android:bottom="50dp"
         android:width="100dp"
         android:height="100dp"
         android:drawable="@drawable/ic_star"
+        android:gravity="center">
+    </item>
+
+    <item
+        android:top="150dp"
+        android:width="160dp"
+        android:height="40dp"
+        android:drawable="@drawable/starfruittext"
         android:gravity="center">
     </item>
 </layer-list>
