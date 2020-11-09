@@ -12,23 +12,16 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="About"
-            android:textSize="30sp"
-            android:textAlignment="center"
-            android:textColor="@color/coal"
-            android:textStyle="bold"/>
-
-        <TextView
             android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/roundededges"
+            android:fontFamily="@font/pulpdisplay"
+            android:padding="10sp"
             android:text="@string/abouttext"
             android:textAlignment="center"
-            android:layout_marginTop="60sp"
-            android:textSize="15sp"
-            android:textColor="@color/coal"/>
+            android:textColor="@color/subtitle"
+            android:textSize="15sp" />
 
     </RelativeLayout>
 

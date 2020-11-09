@@ -11,25 +11,21 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Starfruit"
-            android:textSize="30sp"
-            android:textAlignment="center"
-            android:textColor="@color/coal"
-            android:textStyle="bold"/>
-
-        <TextView
+            android:fontFamily="@font/pulpdisplay"
+            android:padding="10sp"
             android:id="@+id/homeInfo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/hometext"
             android:textAlignment="center"
-            android:layout_marginTop="60sp"
             android:textSize="15sp"
-            android:textColor="@color/coal"/>
+            android:textColor="@color/subtitle"
+            android:background="@drawable/roundededges"
+
+            android:layout_marginBottom="60sp"/>
 
         <com.google.android.material.textview.MaterialTextView
+            android:fontFamily="@font/pulpdisplay"
             android:id="@+id/alarmText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -41,14 +37,18 @@
             android:textAlignment="center"/>
 
         <com.google.android.material.button.MaterialButton
+            android:fontFamily="@font/pulpdisplay"
             android:id="@+id/timeButton"
             android:layout_width="250sp"
             android:layout_height="70sp"
-            android:text="Pick time"
-            android:textSize="20sp"
-            android:layout_alignTop="@+id/homeInfo"
+            android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="400sp" />
+            android:layout_marginTop="400sp"
+            android:layout_marginBottom="50dp"
+            android:text="Pick time"
+            android:textAllCaps="false"
+            android:textStyle="bold"
+            android:textSize="20sp" />
 
     </RelativeLayout>
 

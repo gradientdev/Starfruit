@@ -22,7 +22,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:background="@android:color/white"
-        app:menu="@menu/nav_menu" />
+        app:menu="@menu/nav_menu"
+        android:theme="@style/BottomBarTheme"/>
 
 
 
