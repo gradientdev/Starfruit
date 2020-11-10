@@ -59,7 +59,9 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_star)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        //todo: TimePicker
+        //todo: Auto quote picker
+
+        class Quotes(val num: Int, val quote: String)
 
         //todo: setup AlarmManager
 
