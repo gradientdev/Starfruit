@@ -61,11 +61,23 @@ class MainActivity : AppCompatActivity() {
 
         //todo: Auto quote picker
 
-//        val fileName = """src\main\java\com\gradient\starfruit\quotes.txt"""
-//
-//        val lines: List<String> = File(fileName).readLines()
-//
-//        lines.forEach { line -> println(line) }
+        fun quotePicker(): String {
+            //random quote number
+            //-> quotes: 30
+            val quoteNum = (0..30).random()
+
+            val quote = resources.openRawResource(R.raw.quotes)
+                .bufferedReader().useLines { it.elementAtOrNull(quoteNum) ?: "" }
+
+            Toast.makeText(
+                baseContext, quote,
+                Toast.LENGTH_SHORT
+            ).show()
+
+            return quote
+        }
+
+        quotePicker()
 
         //todo: setup AlarmManager
 
@@ -75,7 +87,7 @@ class MainActivity : AppCompatActivity() {
         // Intent part
         val intent = Intent(this, AlarmReceiver::class.java)
         intent.action = "FOO_ACTION"
-        intent.putExtra("KEY_FOO_STRING", "Alarm triggered!")
+        intent.putExtra("KEY_FOO_STRING", "Starfruit quote sent!")
 
         val pendingIntent = PendingIntent.getBroadcast(this, 0, intent, 0)
 
@@ -155,6 +167,8 @@ class MainActivity : AppCompatActivity() {
             if (intent.action == "FOO_ACTION") {
                 val fooString = intent.getStringExtra("KEY_FOO_STRING")
                 Toast.makeText(context, fooString, Toast.LENGTH_LONG).show()
+
+                // todo: call auto quote picker
 
                 // quote that is being sent. Will be read from a json in the future, but is solid for now
                 var quote = "“One day or day one. You decide.” – Unknown"
