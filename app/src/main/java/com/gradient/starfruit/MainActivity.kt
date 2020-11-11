@@ -61,7 +61,11 @@ class MainActivity : AppCompatActivity() {
 
         //todo: Auto quote picker
 
-        class Quotes(val num: Int, val quote: String)
+//        val fileName = """src\main\java\com\gradient\starfruit\quotes.txt"""
+//
+//        val lines: List<String> = File(fileName).readLines()
+//
+//        lines.forEach { line -> println(line) }
 
         //todo: setup AlarmManager
 
