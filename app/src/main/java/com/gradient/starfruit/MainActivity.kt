@@ -27,7 +27,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-//        this.supportActionBar?.hide()
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
 
         val homeFragment = HomeFragment()
@@ -63,8 +62,7 @@ class MainActivity : AppCompatActivity() {
 
         fun quotePicker(): String {
             //random quote number
-            //-> quotes: 75
-            val quoteNum = (0..75).random()
+            val quoteNum = (0..90).random()
 
             val quote = resources.openRawResource(R.raw.quotes)
                 .bufferedReader().useLines { it.elementAtOrNull(quoteNum) ?: "" }
@@ -169,9 +167,11 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(context, fooString, Toast.LENGTH_LONG).show()
 
                 // todo: call auto quote picker
-
-                // quote that is being sent. Will be read from a json in the future, but is solid for now
-                var quote = "“One day or day one. You decide.” – Unknown"
+                // quote picker below --------------------
+                val quoteNum = (0..90).random()
+                val quote = context.resources.openRawResource(R.raw.quotes)
+                    .bufferedReader().useLines { it.elementAtOrNull(quoteNum) ?: "" }
+                // quote picker above --------------------
 
                 //gets phone number saved earlier from preferences
                 val preferences: SharedPreferences =
