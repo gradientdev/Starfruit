@@ -63,8 +63,8 @@ class MainActivity : AppCompatActivity() {
 
         fun quotePicker(): String {
             //random quote number
-            //-> quotes: 30
-            val quoteNum = (0..30).random()
+            //-> quotes: 50
+            val quoteNum = (0..50).random()
 
             val quote = resources.openRawResource(R.raw.quotes)
                 .bufferedReader().useLines { it.elementAtOrNull(quoteNum) ?: "" }
