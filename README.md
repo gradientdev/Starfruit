@@ -1,13 +1,13 @@
 # Starfruit
 
-![App Icon](starfruiticon.png)
+![App Icon](starfruitbanner.png)
 
 An app that texts the user motivational quotes every morning. (10/18/2020, Project #3)
 
-***[This app is currently in development]***
+***[Starfruit is being published to the Google Play Store!]***
 
-This app will soon be able to send the user a text message containing a motivational quote obtained from an API every morning.
-Users will be able to set what time they would like to receive their message every day through the settings page, and the about page will contain
-info on how to use it, developer contact, and more. 
+Starfruit sends the user a hand-picked motivational quote every morning, or whenever they want to receive one. 
+They can set what time they would like to receive their message every day through the settings page.
+The about page contains info on how to use the app, developer contact, and more. 
 
 All rights reserved.
