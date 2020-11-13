@@ -58,25 +58,6 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_star)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        //todo: Auto quote picker
-
-        fun quotePicker(): String {
-            //random quote number
-            val quoteNum = (0..90).random()
-
-            val quote = resources.openRawResource(R.raw.quotes)
-                .bufferedReader().useLines { it.elementAtOrNull(quoteNum) ?: "" }
-
-            Toast.makeText(
-                baseContext, quote,
-                Toast.LENGTH_SHORT
-            ).show()
-
-            return quote
-        }
-
-        quotePicker()
-
         //todo: setup AlarmManager
 
         // Get AlarmManager instance
@@ -139,17 +120,6 @@ class MainActivity : AppCompatActivity() {
                 )
             }
         }
-
-        //todo: send the message [WORKING]
-
-//        if (ContextCompat.checkSelfPermission(this@MainActivity, Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED) {
-//            sendMessage("Hello from Starfruit! \uD83C\uDF20")
-//        }
-    }
-
-    fun sendMessage(text: String) {
-        val smsManager = SmsManager.getDefault()
-        smsManager.sendTextMessage("+12672747668", null, text, null, null)
     }
 
     private fun makeCurrentFragment(fragment: Fragment) =
