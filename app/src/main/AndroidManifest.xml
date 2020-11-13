@@ -17,6 +17,7 @@
         android:theme="@style/Theme.Starfruit">
 
         <activity android:name=".MainActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
