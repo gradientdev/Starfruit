@@ -138,7 +138,7 @@ class MainActivity : AppCompatActivity() {
 
                 // todo: call auto quote picker
                 // quote picker below --------------------
-                val quoteNum = (0..110).random()
+                val quoteNum = (0..150).random()
                 val quote = context.resources.openRawResource(R.raw.quotes)
                     .bufferedReader().useLines { it.elementAtOrNull(quoteNum) ?: "" }
                 // quote picker above --------------------
