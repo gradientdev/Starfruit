@@ -1,14 +1,15 @@
 package com.gradient.starfruit
 
 import android.Manifest
-import android.app.AlarmManager
-import android.app.PendingIntent
+import android.app.*
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.content.pm.PackageManager
+import android.graphics.BitmapFactory
 import android.icu.util.Calendar
+import android.os.Build
 import android.os.Bundle
 import android.os.Vibrator
 import android.preference.PreferenceManager
@@ -17,15 +18,39 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.app.ActivityCompat
+import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
+    @Suppress("DEPRECATION")
     override fun onCreate(savedInstanceState: Bundle?) {
         setTheme(R.style.SplashTheme);
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        val CHANNEL_ID = "starfruit"
+        val notificationId = 6275
+
+        fun createNotificationChannel() {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                val name = "Starfruit settings title"
+                val descriptionText = "Notification description"
+                val importance = NotificationManager.IMPORTANCE_HIGH
+
+                val channel = NotificationChannel(CHANNEL_ID, name, importance).apply {
+                    description = descriptionText
+                    lockscreenVisibility = Notification.VISIBILITY_PUBLIC
+                }
+                val notificationManager: NotificationManager =
+                    getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+                notificationManager.createNotificationChannel(channel)
+            }
+        }
+
+        createNotificationChannel()
 
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
 
@@ -87,10 +112,34 @@ class MainActivity : AppCompatActivity() {
             pendingIntent
         )
 
-        // Set with system Alarm Service
-        // Other possible functions: setExact() / setRepeating() / setWindow(), etc
+        //todo: notification
 
-        //todo: set up NumberPicker
+        fun sendNotification() {
+            Thread.sleep(5000)
+            val intent = Intent(this, MainActivity::class.java).apply {
+                flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            }
+            val pendingIntent: PendingIntent = PendingIntent.getActivity(this, 0, intent, 0)
+
+            val bitmap = BitmapFactory.decodeResource(applicationContext.resources, R.drawable.ic_star)
+            val bitmapLargeIcon = BitmapFactory.decodeResource(applicationContext.resources, R.drawable.ic_quotes)
+
+            val builder = NotificationCompat.Builder(this, CHANNEL_ID)
+                .setSmallIcon(R.drawable.ic_star)
+                .setLargeIcon(bitmapLargeIcon)
+                .setContentTitle("Daily quote!")
+                .setContentText("Every strike brings me closer to the next home run. – Babe Ruth")
+                .setStyle(NotificationCompat.BigTextStyle())
+                .setPriority(NotificationCompat.PRIORITY_HIGH)
+
+            with(NotificationManagerCompat.from(this)) {
+                notify(notificationId, builder.build())
+            }
+        }
+
+        createNotificationChannel()
+
+        sendNotification()
 
         //todo: get sms permissions [WORKING]
 
