@@ -13,4 +13,5 @@
     <string name="channel_name">starfruitchannel</string>
     <string name="channel_description">A notification channel for the Starfruit app</string>
     <string name="no_time_set">No time set</string>
+    <string name="motivational_message_adding_icon">Motivational message adding icon</string>
 </resources>

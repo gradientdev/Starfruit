@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="150dp"
+    app:cardBackgroundColor="@android:color/white"
+    app:cardCornerRadius="10sp"
+    app:cardMaxElevation="1dp"
+    app:cardElevation="0.7dp"
+    app:contentPadding="10dp"
+    app:cardPreventCornerOverlap="true"
+    android:id="@+id/cardView"
+    android:layout_margin="20sp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="130sp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="centerCrop"
+            android:id="@+id/time"
+            android:src="@drawable/ic_star"
+            android:text="0:00 AM"
+            android:fontFamily="@font/pulpdisplay"
+            android:textSize="55sp"
+            android:layout_margin="5sp"
+            android:contentDescription="CardImageViewDesc"
+            android:textColor="@color/coal" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/setbutton"
+            android:layout_width="100sp"
+            android:layout_height="50sp"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="5dp"
+            android:text="Set"
+            android:textAllCaps="false"
+            android:textSize="16sp"
+            android:fontFamily="@font/pulpdisplay"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="100sp"
+            android:layout_height="50sp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="4dp"
+            android:layout_toEndOf="@+id/setbutton"
+            android:text="Remove"
+            android:textAllCaps="false"
+            android:textSize="16sp"
+            android:fontFamily="@font/pulpdisplay"/>
+
+    </RelativeLayout>
+
+</com.google.android.material.card.MaterialCardView>

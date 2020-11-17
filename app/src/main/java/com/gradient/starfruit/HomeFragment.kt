@@ -2,6 +2,8 @@ package com.gradient.starfruit
 
 import android.app.TimePickerDialog
 import android.content.SharedPreferences
+import android.icu.text.SimpleDateFormat
+import android.icu.util.Calendar
 import android.net.ParseException
 import android.os.Bundle
 import android.preference.PreferenceManager
@@ -10,8 +12,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_home.view.*
-import java.text.SimpleDateFormat
-import java.util.*
 
 @Suppress("DEPRECATION")
 class HomeFragment : Fragment() {
