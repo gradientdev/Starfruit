@@ -115,7 +115,6 @@ class MainActivity : AppCompatActivity() {
         //todo: notification
 
         fun sendNotification() {
-            Thread.sleep(5000)
             val intent = Intent(this, MainActivity::class.java).apply {
                 flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             }
@@ -131,13 +130,12 @@ class MainActivity : AppCompatActivity() {
                 .setContentText("Every strike brings me closer to the next home run. – Babe Ruth")
                 .setStyle(NotificationCompat.BigTextStyle())
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
+                .setContentIntent(pendingIntent)
 
             with(NotificationManagerCompat.from(this)) {
                 notify(notificationId, builder.build())
             }
         }
-
-        createNotificationChannel()
 
         sendNotification()
 
