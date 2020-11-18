@@ -13,7 +13,6 @@ import android.os.Bundle
 import android.os.Vibrator
 import android.preference.PreferenceManager
 import android.telephony.SmsManager
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -77,6 +76,10 @@ class SettingsFragment : Fragment() {
         }
 
         view.timeButton.setOnClickListener {
+            val vibrator =
+                context?.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator; vibrator.vibrate(
+            100
+        )
             val cal = Calendar.getInstance()
             val timeSetListener = TimePickerDialog.OnTimeSetListener { timePicker, hour, minute ->
                 cal.set(Calendar.HOUR_OF_DAY, hour)
@@ -88,7 +91,7 @@ class SettingsFragment : Fragment() {
 
                 val preferences: SharedPreferences =
                     PreferenceManager.getDefaultSharedPreferences(context)
-                preferences.edit().putString("mydate", date).apply();
+                preferences.edit().putString("mydate", date).apply()
             }
             TimePickerDialog(
                 context,
@@ -100,16 +103,16 @@ class SettingsFragment : Fragment() {
         }
 
         view.smsButton.setOnClickListener { view ->
-            Log.d("notifSend", "Selected")
+            val vibrator =
+                context?.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator; vibrator.vibrate(
+            100
+        )
             val smsManager = SmsManager.getDefault()
 
             sendNotificationTest()
 
             //gets phone number saved earlier from preferences
             Toast.makeText(context, "Notification sent!", Toast.LENGTH_LONG).show()
-            val vibrator =
-                context?.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator; vibrator.vibrate(
-            100)
         }
 
         // Return the fragment view/layout

@@ -2,7 +2,7 @@
     <string name="app_name">Starfruit</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hometext">Set the time that you want to be sent your quote below.</string>
-    <string name="settingstext">This is the settings page. You can pick and test the number that you want to receive messages at.</string>
+    <string name="settingstext">This is the settings page. You can pick what time you want to receive your quote and test your notificaitons.</string>
     <string name="abouttext">
     Starfruit texts you a motivational quote at whatever time you choose every day.
     \n\nStarfruit uses your phone\'s built-in messaging app to send quotes, keeping the app completely microtransaction and ad free!

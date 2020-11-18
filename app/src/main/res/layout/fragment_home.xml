@@ -26,11 +26,11 @@
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/quoteText"
-            android:background="@drawable/roundededges"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@+id/homeInfo"
             android:layout_marginTop="-40dp"
+            android:background="@drawable/roundededges"
             android:fontFamily="@font/pulpdisplay"
             android:gravity="center"
             android:text="No quote of the day displayed yet"

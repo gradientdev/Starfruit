@@ -27,7 +27,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 class MainActivity : AppCompatActivity() {
     @Suppress("DEPRECATION")
     override fun onCreate(savedInstanceState: Bundle?) {
-        setTheme(R.style.SplashTheme);
+        setTheme(R.style.SplashTheme)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
@@ -120,8 +120,10 @@ class MainActivity : AppCompatActivity() {
             }
             val pendingIntent: PendingIntent = PendingIntent.getActivity(this, 0, intent, 0)
 
-            val bitmap = BitmapFactory.decodeResource(applicationContext.resources, R.drawable.ic_star)
-            val bitmapLargeIcon = BitmapFactory.decodeResource(applicationContext.resources, R.drawable.ic_quotes)
+            val bitmap =
+                BitmapFactory.decodeResource(applicationContext.resources, R.drawable.ic_star)
+            val bitmapLargeIcon =
+                BitmapFactory.decodeResource(applicationContext.resources, R.drawable.ic_quotes)
 
             val builder = NotificationCompat.Builder(this, CHANNEL_ID)
                 .setSmallIcon(R.drawable.ic_star)
