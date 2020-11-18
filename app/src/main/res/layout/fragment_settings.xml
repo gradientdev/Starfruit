@@ -23,44 +23,169 @@
             android:textColor="@color/subtitle"
             android:textSize="15sp" />
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/alarmText"
-            android:layout_width="300sp"
-            android:layout_height="60sp"
+        <RelativeLayout
+            android:id="@+id/timeModule"
+            android:layout_width="match_parent"
+            android:layout_height="140sp"
+            android:layout_below="@+id/textView"
             android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:fontFamily="@font/pulpdisplay"
-            android:gravity="center"
-            android:inputType="phone"
-            android:text="No daily set"
-            android:textAlignment="center"
-            android:textSize="40sp"
-            android:textStyle="bold" />
+            android:layout_marginTop="20dp"
+            android:background="@drawable/roundededges"
+            android:padding="8sp">
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/timeButton"
-            android:layout_width="300sp"
-            android:layout_height="60sp"
-            android:layout_alignBottom="@+id/notificationButton"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="70sp"
-            android:fontFamily="@font/pulpdisplay"
-            android:text="Set time"
-            android:textAllCaps="false"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            <TextView
+                android:id="@+id/alarmText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5sp"
+                android:contentDescription="CardImageViewDesc"
+                android:fontFamily="@font/pulpdisplay"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_star"
+                android:text="0:00 AM"
+                android:textColor="@color/coal"
+                android:textSize="50sp" />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/notificationButton"
-            android:layout_width="300sp"
-            android:layout_height="60sp"
-            android:layout_alignParentBottom="true"
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/timeButton"
+                android:layout_width="100sp"
+                android:layout_height="50sp"
+                android:layout_alignParentBottom="true"
+                android:layout_margin="5dp"
+                android:fontFamily="@font/pulpdisplay"
+                android:text="Set"
+                android:textAllCaps="false"
+                android:textSize="16sp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="100sp"
+                android:layout_height="50sp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="4dp"
+                android:layout_toEndOf="@+id/timeButton"
+                android:fontFamily="@font/pulpdisplay"
+                android:text="Remove"
+                android:textAllCaps="false"
+                android:textSize="16sp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/notificationModule"
+            android:layout_width="match_parent"
+            android:layout_height="140sp"
+            android:layout_below="@+id/timeModule"
             android:layout_centerHorizontal="true"
-            android:fontFamily="@font/pulpdisplay"
-            android:text="Test quote"
-            android:textAllCaps="false"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            android:layout_marginTop="20dp"
+            android:background="@drawable/roundededges"
+            android:padding="8sp">
+
+            <TextView
+                android:id="@+id/notificationText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5sp"
+                android:contentDescription="CardImageViewDesc"
+                android:fontFamily="@font/pulpdisplay"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_star"
+                android:text="Notifications"
+                android:textColor="@color/coal"
+                android:textSize="50sp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/notificationButton"
+                android:layout_width="220sp"
+                android:layout_height="50sp"
+                android:layout_alignParentBottom="true"
+                android:layout_margin="5dp"
+                android:fontFamily="@font/pulpdisplay"
+                android:text="Test"
+                android:textAllCaps="false"
+                android:textSize="16sp" />
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/referralModule"
+            android:layout_width="match_parent"
+            android:layout_height="140sp"
+            android:layout_below="@+id/notificationModule"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/roundededges"
+            android:padding="8sp">
+
+            <TextView
+                android:id="@+id/referralText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5sp"
+                android:contentDescription="CardImageViewDesc"
+                android:fontFamily="@font/pulpdisplay"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_star"
+                android:text="Referrals [0]"
+                android:textColor="@color/coal"
+                android:textSize="50sp" />
+
+            <TextView
+                android:id="@+id/referralCode"
+                android:layout_width="210sp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/referralText"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="5sp"
+                android:layout_marginBottom="5sp"
+                android:layout_toEndOf="@+id/copyButton"
+                android:background="@drawable/roundededgesdark"
+                android:fontFamily="@font/pulpdisplay"
+                android:gravity="center"
+                android:text="lawrenceville code"
+                android:textSize="18sp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/copyButton"
+                android:layout_width="100sp"
+                android:layout_height="50sp"
+                android:layout_alignParentBottom="true"
+                android:layout_margin="5dp"
+                android:fontFamily="@font/pulpdisplay"
+                android:text="Copy"
+                android:textAllCaps="false"
+                android:textSize="16sp" />
+
+
+        </RelativeLayout>
+
+        <!--        <com.google.android.material.button.MaterialButton-->
+        <!--            android:id="@+id/timeButton"-->
+        <!--            android:layout_width="300sp"-->
+        <!--            android:layout_height="60sp"-->
+        <!--            android:layout_alignBottom="@+id/notificationButton"-->
+        <!--            android:layout_centerHorizontal="true"-->
+        <!--            android:layout_marginBottom="70sp"-->
+        <!--            android:fontFamily="@font/pulpdisplay"-->
+        <!--            android:text="Set time"-->
+        <!--            android:textAllCaps="false"-->
+        <!--            android:textSize="20sp"-->
+        <!--            android:textStyle="bold" />-->
+
+        <!--        <com.google.android.material.button.MaterialButton-->
+        <!--            android:id="@+id/notificationButton"-->
+        <!--            android:layout_width="300sp"-->
+        <!--            android:layout_height="60sp"-->
+        <!--            android:layout_alignParentBottom="true"-->
+        <!--            android:layout_centerHorizontal="true"-->
+        <!--            android:fontFamily="@font/pulpdisplay"-->
+        <!--            android:text="Test quote"-->
+        <!--            android:textAllCaps="false"-->
+        <!--            android:textSize="20sp"-->
+        <!--            android:textStyle="bold" />-->
 
     </RelativeLayout>
 

@@ -70,7 +70,7 @@ class SettingsFragment : Fragment() {
             if (preferences.getString("mydate", "") != "") {
                 val date = simpleDateFormat.parse(preferences.getString("mydate", ""))
                 val formattedDate = simpleDateFormat.format(date)
-                view.alarmText.text = ("Text at " + formattedDate)
+                view.alarmText.text = (formattedDate + " AM")
             }
         } catch (e: ParseException) {
         }
@@ -87,7 +87,7 @@ class SettingsFragment : Fragment() {
 
                 val simpleDateFormat = SimpleDateFormat("HH:mm")
                 val date = simpleDateFormat.format(cal.time)
-                view.alarmText.text = ("Texts at " + date)
+                view.alarmText.text = ("date" + " AM")
 
                 val preferences: SharedPreferences =
                     PreferenceManager.getDefaultSharedPreferences(context)

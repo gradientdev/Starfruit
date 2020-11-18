@@ -30,7 +30,7 @@
             android:textColor="@color/coal" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/setbutton"
+            android:id="@+id/timeButton"
             android:layout_width="100sp"
             android:layout_height="50sp"
             android:layout_alignParentBottom="true"
@@ -47,7 +47,7 @@
             android:layout_marginStart="10dp"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="4dp"
-            android:layout_toEndOf="@+id/setbutton"
+            android:layout_toEndOf="@+id/timeButton"
             android:text="Remove"
             android:textAllCaps="false"
             android:textSize="16sp"

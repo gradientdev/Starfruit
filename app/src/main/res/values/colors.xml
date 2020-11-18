@@ -4,12 +4,12 @@
     <color name="coral">#FF785A</color>
     <color name="darkcoral">#ff5c38</color>
     <color name="secondcolor">#FF785A</color>
-    <color name="teal_700">#FF018786</color>
+    <color name="boldcoral">#F0695E</color>
+    <color name="tealdark">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="midnight">#16151a</color>
-    <color name="staryellow">#f4d700</color>
+    <color name="offwhite">#F0F0F0</color>
     <color name="coal">#1a1a1a</color>
     <color name="subtitle">#474747</color>
-
+    #F0F0F0
 </resources>

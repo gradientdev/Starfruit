@@ -34,8 +34,8 @@ class MainActivity : AppCompatActivity() {
 
         fun createNotificationChannel() {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                val name = "Starfruit settings title"
-                val descriptionText = "Notification description"
+                val name = "Starfruit motivational quotes"
+                val descriptionText = "Starfruit delivers fresh motivational quotes via notifications."
                 val importance = NotificationManager.IMPORTANCE_HIGH
 
                 val channel = NotificationChannel(CHANNEL_ID, name, importance).apply {
