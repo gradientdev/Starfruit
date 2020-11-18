@@ -1,10 +1,14 @@
 package com.gradient.starfruit
 
+import android.content.SharedPreferences
+import android.net.ParseException
 import android.os.Bundle
+import android.preference.PreferenceManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import kotlinx.android.synthetic.main.fragment_home.view.*
 
 @Suppress("DEPRECATION")
 class HomeFragment : Fragment() {
@@ -14,31 +18,22 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
 
     ): View? {
+
+//        val preferences: SharedPreferences =
+//            PreferenceManager.getDefaultSharedPreferences(context)
+//        preferences.edit().putString("dailyQuote", "Lawrenceville").apply()
+
         // Inflate the layout for this fragment
         val view: View = inflater.inflate(R.layout.fragment_home, container, false)
 
-//        view.timeButton.setOnClickListener {
-//            val cal = Calendar.getInstance()
-//            val timeSetListener = TimePickerDialog.OnTimeSetListener { timePicker, hour, minute ->
-//                cal.set(Calendar.HOUR_OF_DAY, hour)
-//                cal.set(Calendar.MINUTE, minute)
-//
-//                val simpleDateFormat = SimpleDateFormat("HH:mm")
-//                val date = simpleDateFormat.format(cal.time)
-//                view.alarmText.text = ("Texts at " + date)
-//
-//                val preferences: SharedPreferences =
-//                    PreferenceManager.getDefaultSharedPreferences(context)
-//                preferences.edit().putString("mydate", date).apply();
-//            }
-//            TimePickerDialog(
-//                context,
-//                timeSetListener,
-//                cal.get(Calendar.HOUR_OF_DAY),
-//                cal.get(Calendar.MINUTE),
-//                false
-//            ).show()
-//        }
+        try {
+            val preferences: SharedPreferences = PreferenceManager.getDefaultSharedPreferences(context)
+            if (preferences.getString("dailyQuote", "") != "") {
+                val quote = (preferences.getString("dailyQuote", "")).toString()
+                view.quoteText.text = (quote)
+            }
+        } catch (e: ParseException) {
+        }
 
         // Return the fragment view/layout
         return view

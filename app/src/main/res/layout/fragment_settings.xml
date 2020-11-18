@@ -32,7 +32,7 @@
             android:fontFamily="@font/pulpdisplay"
             android:gravity="center"
             android:inputType="phone"
-            android:text="No quotes set"
+            android:text="No daily set"
             android:textAlignment="center"
             android:textSize="40sp"
             android:textStyle="bold" />
@@ -41,7 +41,7 @@
             android:id="@+id/timeButton"
             android:layout_width="300sp"
             android:layout_height="60sp"
-            android:layout_alignBottom="@+id/smsButton"
+            android:layout_alignBottom="@+id/notificationButton"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="70sp"
             android:fontFamily="@font/pulpdisplay"
@@ -51,7 +51,7 @@
             android:textStyle="bold" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/smsButton"
+            android:id="@+id/notificationButton"
             android:layout_width="300sp"
             android:layout_height="60sp"
             android:layout_alignParentBottom="true"

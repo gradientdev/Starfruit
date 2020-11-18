@@ -102,7 +102,7 @@ class SettingsFragment : Fragment() {
             ).show()
         }
 
-        view.smsButton.setOnClickListener { view ->
+        view.notificationButton.setOnClickListener { view ->
             val vibrator =
                 context?.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator; vibrator.vibrate(
             100

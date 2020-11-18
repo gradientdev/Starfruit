@@ -11,9 +11,7 @@ import android.graphics.BitmapFactory
 import android.icu.util.Calendar
 import android.os.Build
 import android.os.Bundle
-import android.os.Vibrator
 import android.preference.PreferenceManager
-import android.telephony.SmsManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
@@ -185,36 +183,46 @@ class MainActivity : AppCompatActivity() {
                 val fooString = intent.getStringExtra("KEY_FOO_STRING")
                 Toast.makeText(context, fooString, Toast.LENGTH_LONG).show()
 
-                // todo: call auto quote picker
                 // quote picker below --------------------
                 val quoteNum = (0..150).random()
                 val quote = context.resources.openRawResource(R.raw.quotes)
                     .bufferedReader().useLines { it.elementAtOrNull(quoteNum) ?: "" }
-                // quote picker above --------------------
 
-                //gets phone number saved earlier from preferences
-                val preferences: SharedPreferences =
-                    PreferenceManager.getDefaultSharedPreferences(context)
-                val num = (preferences.getString("phoneNumber", "").toString())
+                // send notification ---------------------
 
-                // check if quote has more than 70 characters, and split if needed
-                if (quote.count() > 70) {
-                    val smsManager = SmsManager.getDefault()
-                    var quoteParts = smsManager.divideMessage(quote)
-                    // send split quote portions separately with a for loop
-                    for (quote in quoteParts) {
-                        smsManager.sendTextMessage(num, null, quote, null, null)
+                val CHANNEL_ID = "starfruit"
+                val notificationId = 6275
+
+                val intent = Intent(context, MainActivity::class.java).apply {
+                    flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                }
+                val pendingIntent: PendingIntent = PendingIntent.getActivity(context, 0, intent, 0)
+
+                val bitmap = BitmapFactory.decodeResource(context.resources, R.drawable.ic_star)
+                val bitmapLargeIcon = BitmapFactory.decodeResource(context.resources, R.drawable.ic_quotes)
+
+                val builder = context.let {
+                    NotificationCompat.Builder(it, CHANNEL_ID)
+                        .setSmallIcon(R.drawable.ic_star)
+                        .setLargeIcon(bitmapLargeIcon)
+                        .setContentTitle("Daily quote!")
+                        .setContentText(quote)
+                        .setStyle(NotificationCompat.BigTextStyle())
+                        .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                        .setContentIntent(pendingIntent)
+                }
+
+                with(context.let { NotificationManagerCompat.from(it) }) {
+                    if (builder != null) {
+                        this.notify(notificationId, builder.build())
                     }
                 }
-                //send everything in one piece if quote is 70 chars or under
-                else {
-                    val smsManager = SmsManager.getDefault()
-                    smsManager.sendTextMessage(num, null, quote, null, null)
-                    val vibrator =
-                        context.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator; vibrator.vibrate(
-                        400
-                    )
-                }
+
+                // set daily quote -------------------------
+
+                val preferences: SharedPreferences =
+                    PreferenceManager.getDefaultSharedPreferences(context)
+                preferences.edit().putString("dailyQuote", quote).apply()
             }
         }
     }
