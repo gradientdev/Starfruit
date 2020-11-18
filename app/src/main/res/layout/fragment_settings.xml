@@ -23,49 +23,42 @@
             android:textColor="@color/subtitle"
             android:textSize="15sp" />
 
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/alarmText"
             android:layout_width="300sp"
-            android:layout_height="60dp"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="180sp"
-            android:fontFamily="@font/pulpdisplay"
-            android:text="What phone number do you want to receive your message?"
-            android:textAlignment="center"
-            android:textSize="17sp" />
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/phonePicker"
-            android:layout_width="300sp"
-            android:layout_height="50sp"
+            android:layout_height="60sp"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:fontFamily="@font/pulpdisplay"
-            android:hint="+12223334444"
+            android:gravity="center"
+            android:textSize="40sp"
+            android:text="No quotes set"
+            android:textStyle="bold"
             android:inputType="phone"
             android:textAlignment="center" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/saveButton"
-            android:layout_width="170sp"
+            android:id="@+id/timeButton"
+            android:layout_width="210sp"
             android:layout_height="60sp"
             android:layout_alignBottom="@+id/smsButton"
             android:layout_centerHorizontal="true"
-            android:layout_marginBottom="80sp"
+            android:layout_marginBottom="70sp"
             android:fontFamily="@font/pulpdisplay"
-            android:text="Save"
+            android:text="Set time"
             android:textAllCaps="false"
             android:textSize="20sp"
             android:textStyle="bold" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/smsButton"
-            android:layout_width="170sp"
+            android:layout_width="210sp"
             android:layout_height="60sp"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginBottom="50sp"
+            android:layout_marginBottom="20sp"
             android:fontFamily="@font/pulpdisplay"
-            android:text="Test SMS"
+            android:text="Test quote"
             android:textAllCaps="false"
             android:textSize="20sp"
             android:textStyle="bold" />

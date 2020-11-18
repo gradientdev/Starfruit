@@ -25,29 +25,18 @@
             android:textSize="15sp" />
 
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/alarmText"
+            android:id="@+id/quoteText"
+            android:background="@drawable/roundededges"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/homeInfo"
+            android:layout_marginTop="-40dp"
             android:fontFamily="@font/pulpdisplay"
-            android:text="@string/no_time_set"
+            android:gravity="center"
+            android:text="No quote of the day displayed yet"
             android:textAlignment="center"
             android:textColor="@color/coal"
-            android:textSize="40sp"
-            android:textStyle="bold" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/timeButton"
-            android:layout_width="250sp"
-            android:layout_height="70sp"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="400sp"
-            android:layout_marginBottom="50dp"
-            android:fontFamily="@font/pulpdisplay"
-            android:text="Pick time"
-            android:textAllCaps="false"
-            android:textSize="20sp"
+            android:textSize="35sp"
             android:textStyle="bold" />
 
     </RelativeLayout>
