@@ -110,35 +110,6 @@ class MainActivity : AppCompatActivity() {
             pendingIntent
         )
 
-        //todo: notification
-
-        fun sendNotification() {
-            val intent = Intent(this, MainActivity::class.java).apply {
-                flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-            }
-            val pendingIntent: PendingIntent = PendingIntent.getActivity(this, 0, intent, 0)
-
-            val bitmap =
-                BitmapFactory.decodeResource(applicationContext.resources, R.drawable.ic_star)
-            val bitmapLargeIcon =
-                BitmapFactory.decodeResource(applicationContext.resources, R.drawable.ic_quotes)
-
-            val builder = NotificationCompat.Builder(this, CHANNEL_ID)
-                .setSmallIcon(R.drawable.ic_star)
-                .setLargeIcon(bitmapLargeIcon)
-                .setContentTitle("Daily quote!")
-                .setContentText("Every strike brings me closer to the next home run. – Babe Ruth")
-                .setStyle(NotificationCompat.BigTextStyle())
-                .setPriority(NotificationCompat.PRIORITY_HIGH)
-                .setContentIntent(pendingIntent)
-
-            with(NotificationManagerCompat.from(this)) {
-                notify(notificationId, builder.build())
-            }
-        }
-
-        sendNotification()
-
         //todo: get sms permissions [WORKING]
 
         @Suppress("DEPRECATED_IDENTITY_EQUALS")

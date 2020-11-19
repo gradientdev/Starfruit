@@ -12,7 +12,6 @@ import android.net.ParseException
 import android.os.Bundle
 import android.os.Vibrator
 import android.preference.PreferenceManager
-import android.telephony.SmsManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -70,7 +69,7 @@ class SettingsFragment : Fragment() {
             if (preferences.getString("mydate", "") != "") {
                 val date = simpleDateFormat.parse(preferences.getString("mydate", ""))
                 val formattedDate = simpleDateFormat.format(date)
-                view.alarmText.text = (formattedDate + " AM")
+                view.alarmText.text = ("Sends at " + formattedDate)
             }
         } catch (e: ParseException) {
         }
@@ -87,7 +86,7 @@ class SettingsFragment : Fragment() {
 
                 val simpleDateFormat = SimpleDateFormat("HH:mm")
                 val date = simpleDateFormat.format(cal.time)
-                view.alarmText.text = ("date" + " AM")
+                view.alarmText.text = ("Sends at " + date)
 
                 val preferences: SharedPreferences =
                     PreferenceManager.getDefaultSharedPreferences(context)
@@ -107,12 +106,59 @@ class SettingsFragment : Fragment() {
                 context?.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator; vibrator.vibrate(
             100
         )
-            val smsManager = SmsManager.getDefault()
-
             sendNotificationTest()
+            Toast.makeText(context, "Fresh quote added!", Toast.LENGTH_LONG).show()
+        }
 
-            //gets phone number saved earlier from preferences
-            Toast.makeText(context, "Notification sent!", Toast.LENGTH_LONG).show()
+        view.newQuoteButton.setOnClickListener { view ->
+            val vibrator =
+                context?.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator; vibrator.vibrate(
+            100
+        )
+            // quote picker below --------------------
+            val quoteNum = (0..150).random()
+            val quote = this.resources.openRawResource(R.raw.quotes)
+                .bufferedReader().useLines { it.elementAtOrNull(quoteNum) ?: "" }
+
+            // send notification ---------------------
+
+            val CHANNEL_ID = "starfruit"
+            val notificationId = 6275
+
+            val intent = Intent(context, MainActivity::class.java).apply {
+                flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            }
+            val pendingIntent: PendingIntent = PendingIntent.getActivity(context, 0, intent, 0)
+
+            val bitmap = BitmapFactory.decodeResource(resources, R.drawable.ic_star)
+            val bitmapLargeIcon = BitmapFactory.decodeResource(resources, R.drawable.ic_quotes)
+
+            val builder = context.let {
+                it?.let { it1 ->
+                    NotificationCompat.Builder(it1, CHANNEL_ID)
+                        .setSmallIcon(R.drawable.ic_star)
+                        .setLargeIcon(bitmapLargeIcon)
+                        .setContentTitle("Fresh quote!")
+                        .setContentText(quote)
+                        .setStyle(NotificationCompat.BigTextStyle())
+                        .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                        .setContentIntent(pendingIntent)
+                }
+            }
+
+            with(context.let { it?.let { it1 -> NotificationManagerCompat.from(it1) } }) {
+                if (builder != null) {
+                    this?.notify(notificationId, builder.build())
+                }
+            }
+
+            // set daily quote -------------------------
+
+            val preferences: SharedPreferences =
+                PreferenceManager.getDefaultSharedPreferences(context)
+            preferences.edit().putString("dailyQuote", quote).apply()
+
+            Toast.makeText(context, "New quote set!", Toast.LENGTH_LONG).show()
         }
 
         // Return the fragment view/layout
