@@ -155,7 +155,7 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(context, fooString, Toast.LENGTH_LONG).show()
 
                 // quote picker below --------------------
-                val quoteNum = (0..150).random()
+                val quoteNum = (0..160).random()
                 val quote = context.resources.openRawResource(R.raw.quotes)
                     .bufferedReader().useLines { it.elementAtOrNull(quoteNum) ?: "" }
 
