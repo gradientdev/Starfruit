@@ -5,9 +5,9 @@
     <string name="settingstext">This is the settings page. You can pick what time you want to receive your quote and test your notificaitons.</string>
     <string name="abouttext">
     Starfruit texts you a motivational quote at whatever time you choose every day.
-    \n\nStarfruit uses your phone\'s built-in messaging app to send quotes, keeping the app completely microtransaction and ad free!
-    \n\nIf you are enjoying the app, I would really appreciate a review.
-    \n\nAny questions, comments, or feedback? email me at xinyunzhouu@gmail.com!
+    \n\nStarfruit doesn\'t collect your personal info, and is completely microtransaction and ad-free.
+    \n\nIf you are enjoying the app, I would really appreciate a review!
+    \n\nAny questions, comments, or feedback? email me at xinyunzhouu@gmail.com.
     </string>
     <string name="channel_name">starfruitchannel</string>
     <string name="channel_description">A notification channel for the Starfruit app</string>

@@ -116,7 +116,7 @@ class SettingsFragment : Fragment() {
             100
         )
             // quote picker below --------------------
-            val quoteNum = (0..160).random()
+            val quoteNum = (0..200).random()
             val quote = this.resources.openRawResource(R.raw.quotes)
                 .bufferedReader().useLines { it.elementAtOrNull(quoteNum) ?: "" }
 

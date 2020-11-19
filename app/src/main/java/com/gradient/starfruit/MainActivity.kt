@@ -30,7 +30,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val CHANNEL_ID = "starfruit"
-        val notificationId = 6275
 
         fun createNotificationChannel() {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -155,7 +154,7 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(context, fooString, Toast.LENGTH_LONG).show()
 
                 // quote picker below --------------------
-                val quoteNum = (0..160).random()
+                val quoteNum = (0..200).random()
                 val quote = context.resources.openRawResource(R.raw.quotes)
                     .bufferedReader().useLines { it.elementAtOrNull(quoteNum) ?: "" }
 
