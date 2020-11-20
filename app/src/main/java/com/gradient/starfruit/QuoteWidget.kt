@@ -3,6 +3,8 @@ package com.gradient.starfruit
 import android.appwidget.AppWidgetManager
 import android.appwidget.AppWidgetProvider
 import android.content.Context
+import android.content.SharedPreferences
+import android.preference.PreferenceManager
 import android.widget.RemoteViews
 
 /**
@@ -34,11 +36,9 @@ internal fun updateAppWidget(
     appWidgetManager: AppWidgetManager,
     appWidgetId: Int
 ) {
-    val widgetText = context.getString(R.string.appwidget_text)
-    // Construct the RemoteViews object
-    val views = RemoteViews(context.packageName, R.layout.quote_widget)
-    views.setTextViewText(R.id.appwidget_text, widgetText)
-
-    // Instruct the widget manager to update the widget
+    val preferences: SharedPreferences = PreferenceManager.getDefaultSharedPreferences(context)
+    var quote: String? = preferences.getString("dailyQuote", "")
+    var views = RemoteViews(context.packageName, R.layout.quote_widget)
+    views.setTextViewText(R.id.appwidget_text, quote)
     appWidgetManager.updateAppWidget(appWidgetId, views)
 }
