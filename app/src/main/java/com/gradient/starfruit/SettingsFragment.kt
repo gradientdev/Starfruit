@@ -19,6 +19,7 @@ import android.widget.Toast
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import androidx.fragment.app.Fragment
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.android.synthetic.main.fragment_settings.view.*
 
 @Suppress("DEPRECATION")
@@ -101,13 +102,14 @@ class SettingsFragment : Fragment() {
             ).show()
         }
 
-        view.notificationButton.setOnClickListener { view ->
-            val vibrator =
-                context?.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator; vibrator.vibrate(
-            100
-        )
-            sendNotificationTest()
-            Toast.makeText(context, "Fresh quote added!", Toast.LENGTH_LONG).show()
+            // when button is clicked, show the alert
+        view.notificationButton.setOnClickListener {
+            // build alert dialog
+            var view = MaterialAlertDialogBuilder(context!!, R.style.AlertDialogTheme)
+                .setTitle("Setting up Starfruit widget")
+                .setMessage("Long press on your home screen, and go to widgets, then Starfruit.\n\nAnd you'll have the Starfruit widget! You'll be able to see motivational quotes right on your home screen.")
+                .setPositiveButton("Proceed", null)
+                .show()
         }
 
         view.newQuoteButton.setOnClickListener { view ->

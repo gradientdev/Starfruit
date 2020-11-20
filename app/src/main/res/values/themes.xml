@@ -12,6 +12,8 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <item name="actionBarTheme">@style/CustomToolbarTheme</item>
+
+        <item name="android:timePickerDialogTheme">@style/TimeTheme</item>
     </style>
 
     <style name="CustomToolbarTheme" parent="Theme.AppCompat.NoActionBar">
@@ -25,8 +27,38 @@
         <item name="android:windowBackground">@drawable/splashscreen</item>
     </style>
 
+    <style name="AlertDialogTheme" parent="ThemeOverlay.MaterialComponents.MaterialAlertDialog">
+        <item name="colorSurface">@color/white</item>
+        <item name="materialAlertDialogTitleTextStyle">@style/TitleTextStyle</item>
+        <item name="materialAlertDialogBodyTextStyle">@style/BodyTextStyle</item>
+        <item name="buttonBarPositiveButtonStyle">@style/PositiveButtonStyle</item>
+    </style>
+    <style name="TitleTextStyle" parent="MaterialAlertDialog.MaterialComponents.Title.Text">
+        <item name="android:textColor">@color/coal</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">26sp</item>
+        <item name="fontFamily">@font/pulpdisplay</item>
+    </style>
+    <style name="BodyTextStyle" parent="MaterialAlertDialog.MaterialComponents.Body.Text">
+        <item name="android:textColor">@color/subtitle</item>
+        <item name="android:textSize">14sp</item>
+        <item name="fontFamily">@font/pulpdisplay</item>
+    </style>
+    <style name="PositiveButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:textColor">@color/coral</item>
+        <item name="rippleColor">@color/coral</item>
+        <item name="fontFamily">@font/pulpdisplay</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
     <style name="BottomBarTheme">
         <item name="fontFamily">@font/pulpdisplay</item>
+    </style>
+
+    <style name="TimeTheme" parent="ThemeOverlay.MaterialComponents.Dialog">
+        <item name="fontFamily">@font/pulpdisplay</item>
+        <item name="textAllCaps">false</item>
     </style>
 
     <style name="ThemeOverlay.Starfruit.AppWidgetContainer" parent="">

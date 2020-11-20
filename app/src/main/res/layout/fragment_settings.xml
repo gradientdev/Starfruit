@@ -79,7 +79,7 @@
                 android:fontFamily="@font/pulpdisplay"
                 android:scaleType="centerCrop"
                 android:src="@drawable/ic_star"
-                android:text="Notifications"
+                android:text="Widgets"
                 android:textColor="@color/coal"
                 android:textSize="35sp"
                 android:textStyle="bold"/>
@@ -91,7 +91,7 @@
                 android:layout_alignParentBottom="true"
                 android:layout_margin="5dp"
                 android:fontFamily="@font/pulpdisplay"
-                android:text="Test notifications"
+                android:text="How to set up"
                 android:textAllCaps="false"
                 android:textSize="16sp" />
 
