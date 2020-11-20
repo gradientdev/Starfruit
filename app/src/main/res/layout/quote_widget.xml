@@ -1,7 +1,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/roundededges"
+    android:background="@drawable/roundededgesdark"
     android:padding="@dimen/widget_margin"
     android:theme="@style/ThemeOverlay.Starfruit.AppWidgetContainer">
 
@@ -9,13 +10,17 @@
         android:id="@+id/appwidget_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:layout_margin="8dp"
-        android:background="?attr/appWidgetBackgroundColor"
-        android:contentDescription="@string/appwidget_text"
-        android:text="@string/appwidget_text"
-        android:textColor="?attr/appWidgetTextColor"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/roundededges"
         android:fontFamily="@font/pulpdisplay"
-        android:textSize="20sp"/>
+        android:gravity="center"
+        android:padding="10sp"
+        android:text="No quote delivered yet! Click to get a new quote in the app."
+        android:textAlignment="center"
+        android:textColor="?attr/appWidgetTextColor"
+        android:textSize="20sp"
+        android:textStyle="bold" />
 </RelativeLayout>
