@@ -13,4 +13,6 @@
     <string name="channel_description">A notification channel for the Starfruit app</string>
     <string name="no_time_set">No time set</string>
     <string name="motivational_message_adding_icon">Motivational message adding icon</string>
+    <string name="appwidget_text">"The person who says it cannot be done should not interrupt the person who is doing it." - Chinese Proverb</string>
+    <string name="add_widget">Add widget</string>
 </resources>

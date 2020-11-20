@@ -29,4 +29,9 @@
         <item name="fontFamily">@font/pulpdisplay</item>
     </style>
 
+    <style name="ThemeOverlay.Starfruit.AppWidgetContainer" parent="">
+        <item name="appWidgetBackgroundColor">@color/white</item>
+        <item name="appWidgetTextColor">@color/coal</item>
+    </style>
+
 </resources>

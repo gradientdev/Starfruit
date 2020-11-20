@@ -3,7 +3,6 @@
     package="com.gradient.starfruit">
 
     <uses-permission android:name="android.permission.VIBRATE" />
-
     <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY" />
 
     <application
@@ -13,8 +12,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Starfruit">
+        <receiver android:name=".QuoteWidget">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
 
-        <activity android:name=".MainActivity"
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/quote_widget_info" />
+        </receiver>
+
+        <activity
+            android:name=".MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/SplashTheme">
             <intent-filter>
@@ -24,16 +33,17 @@
             </intent-filter>
         </activity>
 
-        <receiver android:name=".MainActivity$AlarmReceiver"
+        <receiver
+            android:name=".MainActivity$AlarmReceiver"
             android:exported="true">
             <intent-filter>
-                <action android:name="FOO_ACTION" ></action>
+                <action android:name="FOO_ACTION" />
             </intent-filter>
         </receiver>
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
-
     </application>
 
 </manifest>
